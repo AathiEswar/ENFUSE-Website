@@ -59,12 +59,12 @@ const PlayIcon = createIcon({
 			<section className="min-h-screen">
 			<Container maxW={'5xl'} py={12}>
 	
-	<Stack direction={{ base: 'column-reverse', md: 'row' }} spacing={10}>
+	<Stack direction={{ base: 'column', md: 'row' }} spacing={10} className='flex flex-col  items-center'>
 	
 	
 		<Image
 		  rounded={'md'}
-		 
+		 	w={{base:"300px"}}
 		  alt={'feature image'}
 		  src={
 			"/ramENFUSE	.png"
@@ -76,9 +76,9 @@ const PlayIcon = createIcon({
 	
 		/>
 	  
-	  <Stack spacing={4}>
+	  <Stack spacing={4} className=''>
 		
-		<Heading className='text-blue-500'>The President</Heading>
+		<Heading className='text-blue-500  text-center md:text-start'>The President</Heading>
 		<Text color={'gray.500'} fontSize={'lg'}>
 		Shri S.Ramalingam is the former Chairman & Managing Director of Chennai Petroleum Corporation Ltd (CPCL), formerly Madras Refinries Ltd(MRL) a major Public Sector organisation with two Oil Refineries with the capacity of 10 million MTPA. Mr. Ramalingam is also former Chairman, National Aromatics and petrochemicals Corporation Ltd. (AROCHEM) – a joint sector Petrochemical project to manufacture PTA and Xylene and Indian Limited (IAL) – a joint venture company with Multi National Company, Chevron Chemical Corporation, USA to manufacture Lubricating Oil Additives.</Text>
 		
