@@ -91,7 +91,7 @@ export default function BlogPostWithImage() {
             _focus={{
               bg: 'green.500',
             }}>
-              <Link href={'/blogs/'+content.id}> Know more</Link>
+              <Link href={'/events/'+content.id}> Know more</Link>
         
           </Button>
 
