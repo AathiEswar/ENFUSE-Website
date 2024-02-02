@@ -38,7 +38,7 @@ export default function footer() {
           <div>
             <FooterTitle title=" Dissemination" />
             <FooterLinkGroup col>
-              <FooterLink href="#">Journal</FooterLink>
+              <FooterLink href="/journal">Journal</FooterLink>
               <FooterLink href="/events">Events </FooterLink>
             </FooterLinkGroup>
           </div>
