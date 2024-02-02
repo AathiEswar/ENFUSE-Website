@@ -98,11 +98,11 @@ export const Navbar = () => {
 				<Button
 						as={Link}
 						className="text-sm font-normal text-default-600 bg-default-100"
-						href="/blogs"
+						href="/events"
 						startContent={<ImBlog />}
 						variant="flat"
 					>
-						Blogs
+						Events
 					</Button>
 				<NavbarItem className="hidden md:flex">
 					<Button
