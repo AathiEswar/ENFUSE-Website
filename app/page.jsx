@@ -93,7 +93,14 @@ function StatsCard(props) {
 
 export default function Home() {
 
-
+  useEffect(()=>{
+  (
+      async ()=>{
+          const LocomotiveScroll = (await import("locomotive-scroll")).default;
+          const loco = new LocomotiveScroll();
+      }
+  )
+  } , [])
 
 
 
@@ -111,62 +118,97 @@ export default function Home() {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-      const page1Image = gsap.timeline();
+      const page1Image = gsap.timeline({
+       
+      });
       const page1Text = gsap.timeline();
-      const page2Image = gsap.timeline();
+      const page2Image = gsap.timeline({
+        scrollTrigger:{
+          trigger : image2.current,
+          start : "-50% center",
+          end :  "110% center",
+          scrub : false,
+          // markers : true,
+          toggleActions : "play reverse play reverse"
+         
+        }
+      });
       const page2Text = gsap.timeline();
       page1Image
         .from(image.current, 
           {
-            opacity:0.1,
+            opacity:0,
              x: 800,  
+            
            
           })
         .to(image.current, { 
-          delay :0.1,
+
           opacity:1,
            x: 0, 
            duration: 1,
            ease : "power2.inOut",
-         
+        
         })
 
         page1Text
         .from(text1.current , {
-          opacity:0.1,
+          opacity:0,
           x : -600,
         })
         .to(text1.current , {
-          delay : 0.1,
+
             x:0,
-            duration : 0.5,
+            duration : 1,
             ease : "power2.inOut", opacity:1,
         })  
         .from(text2.current , {
           x : -600, opacity:0.1,
         })
         .to(text2.current , {
-          delay : 0.1,
+       
             x:0,
-            duration : 0.2,
+            duration : 0.5,
             ease : "power2.inOut", opacity:1,
         }) 
         .from(text3.current , {
-          x : -600, opacity:0.1,
+          x : -600, opacity:0,
         })
         .to(text3.current , {
             x:0,
-            duration : 0.2,
+            duration : 0.5,
             ease : "power2.inOut", opacity:1,
         }) 
 
         
+        
+        page2Image
+        .from(image2.current, 
+          {
+            opacity : 0,
+             x: -200, 
+             scale : 0.5,
+            
+            
+          })
+        .to(image2.current, { 
+          opacity : 1,
+           x: 0, 
+           duration: 1, 
+           scale : 1,
+        
+  
+        
+        })
+
 
 
   }, []);
+
+
   return (
     <>
-      <section className="lg:h-screen w-screen" >
+      <section className="lg:h-screen w-screen"  >
         <Stack direction={{ base: "column", md: "row" }}>
           <Flex p={8} flex={1} align={"center"} justify={"center"}>
             <Stack spacing={6} w={"full"} maxW={"lg"}>
@@ -216,6 +258,8 @@ export default function Home() {
               src={"/oil.jpg"}
               borderRadius={"20px"}
               ref={image}
+
+            
             />
           </Flex>
         </Stack>
