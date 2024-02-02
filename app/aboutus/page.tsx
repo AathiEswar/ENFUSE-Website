@@ -56,11 +56,11 @@ const PlayIcon = createIcon({
 //   }
 	return (
 		<>
-			<section className="h-screen">
+			<section className="min-h-screen">
 			<Container maxW={'5xl'} py={12}>
 	
 	<Stack direction={{ base: 'column-reverse', md: 'row' }} spacing={10}>
-	<Flex>
+	
 	
 		<Image
 		  rounded={'md'}
@@ -75,34 +75,13 @@ const PlayIcon = createIcon({
 
 	
 		/>
-	  </Flex>
+	  
 	  <Stack spacing={4}>
 		
 		<Heading className='text-blue-500'>The President</Heading>
 		<Text color={'gray.500'} fontSize={'lg'}>
-		ENFUSE seeks to maximze the effectiveness of energy and fuel usage, particularly in the industrial sector, and thus contribute to Nation's industrial development by playing the role of catalyst and advisor.
-		</Text>
-		<Stack
-		  spacing={4}
-		  divider={
-			<StackDivider borderColor={useColorModeValue('gray.100', 'gray.700')} />
-		  }>
-		  <Feature
-			icon={<Icon as={IoAnalyticsSharp} color={'yellow.500'} w={5} h={5} />}
-			iconBg={useColorModeValue('yellow.100', 'yellow.900')}
-			text={'Oil and Gas'}
-		  />
-		  <Feature
-			icon={<Icon as={IoLogoBitcoin} color={'green.500'} w={5} h={5} />}
-			iconBg={useColorModeValue('green.100', 'green.900')}
-			text={'Renewable Energy'}
-		  />
-		  <Feature
-			icon={<Icon as={IoSearchSharp} color={'purple.500'} w={5} h={5} />}
-			iconBg={useColorModeValue('purple.100', 'purple.900')}
-			text={'Energy Efficiency'}
-		  />
-		</Stack>
+		Shri S.Ramalingam is the former Chairman & Managing Director of Chennai Petroleum Corporation Ltd (CPCL), formerly Madras Refinries Ltd(MRL) a major Public Sector organisation with two Oil Refineries with the capacity of 10 million MTPA. Mr. Ramalingam is also former Chairman, National Aromatics and petrochemicals Corporation Ltd. (AROCHEM) – a joint sector Petrochemical project to manufacture PTA and Xylene and Indian Limited (IAL) – a joint venture company with Multi National Company, Chevron Chemical Corporation, USA to manufacture Lubricating Oil Additives.</Text>
+		
 	  </Stack>
 	  
 	</Stack>
