@@ -312,15 +312,6 @@ export default function Home() {
         </Flex>
       </section>
 
-<<<<<<< HEAD
-{/* test by khaleel */}
-		<section className='h-screen'>
-      
-		</section>
-
-		</>
-	);
-=======
       <section className="min-h-screen w-screen">
         <Box maxW="7xl" mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
           <chakra.h1
@@ -363,5 +354,4 @@ export default function Home() {
       </section>
     </>
   );
->>>>>>> b434b9f41304cde96b113bdbc28d49fcf6782e4a
 }
