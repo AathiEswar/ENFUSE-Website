@@ -4,8 +4,10 @@ export default function AboutLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<section className="h-screen w-screen">
-			<div>slfjh</div>
+		<section className="flex flex-col items-center justify-center ">
+			<div className="">
+				{children}
+			</div>
 		</section>
 	);
 }
