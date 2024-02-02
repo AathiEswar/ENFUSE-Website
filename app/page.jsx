@@ -1,5 +1,8 @@
 "use client";
 import ReactTypingEffect from "react-typing-effect";
+import { gsap } from "gsap";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   Button,
   Flex,
@@ -37,6 +40,8 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
+import { useEffect, useLayoutEffect, useRef } from "react";
+import { easeIn, easeInOut } from "framer-motion";
 
 const Feature = ({ text, icon, iconBg }) => {
   return (
@@ -69,15 +74,12 @@ function StatsCard(props) {
       borderColor={useColorModeValue("white", "white")}
       rounded={"lg"}
       className="text-white hover:text-black hover:bg-gray-300 hover:scale-105 duration-500"
-      
     >
       <StatLabel
         fontWeight={"bold"}
         isTruncated
         // textColor={"white"}
         fontSize={"2xl"}
-
-        
       >
         {title}
       </StatLabel>
@@ -87,14 +89,88 @@ function StatsCard(props) {
     </Stat>
   );
 }
+
+
 export default function Home() {
+
+
+
+
+
+
+ 
+  const image = useRef(null);
+  const text1 = useRef(null);
+  const text2 = useRef(null);
+  const text3 = useRef(null);
+
+  const image2 = useRef(null);
+  const text21 = useRef(null);
+  const text22 = useRef(null);
+  const text23 = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+      const page1Image = gsap.timeline();
+      const page1Text = gsap.timeline();
+      const page2Image = gsap.timeline();
+      const page2Text = gsap.timeline();
+      page1Image
+        .from(image.current, 
+          {
+            opacity:0.1,
+             x: 800,  
+           
+          })
+        .to(image.current, { 
+          delay :0.1,
+          opacity:1,
+           x: 0, 
+           duration: 1,
+           ease : "power2.inOut",
+         
+        })
+
+        page1Text
+        .from(text1.current , {
+          opacity:0.1,
+          x : -600,
+        })
+        .to(text1.current , {
+          delay : 0.1,
+            x:0,
+            duration : 0.5,
+            ease : "power2.inOut", opacity:1,
+        })  
+        .from(text2.current , {
+          x : -600, opacity:0.1,
+        })
+        .to(text2.current , {
+          delay : 0.1,
+            x:0,
+            duration : 0.2,
+            ease : "power2.inOut", opacity:1,
+        }) 
+        .from(text3.current , {
+          x : -600, opacity:0.1,
+        })
+        .to(text3.current , {
+            x:0,
+            duration : 0.2,
+            ease : "power2.inOut", opacity:1,
+        }) 
+
+        
+
+
+  }, []);
   return (
     <>
-      <section className="lg:h-screen w-screen">
+      <section className="lg:h-screen w-screen" >
         <Stack direction={{ base: "column", md: "row" }}>
           <Flex p={8} flex={1} align={"center"} justify={"center"}>
             <Stack spacing={6} w={"full"} maxW={"lg"}>
-              <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+              <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }} ref={text1}  >
                 {/* <Text
               as={'span'}
               position={'relative'}
@@ -114,11 +190,11 @@ export default function Home() {
                   <ReactTypingEffect
                     text={["ENFUSE", "ENERGY LEADER"]}
                     typingDelay={400}
-                    eraseDelay={2000}
+                    eraseDelay={2000}   
                   />
                 </Text>{" "}
               </Heading>
-              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"} ref={text2} >
                 {" "}
                 ENFUSE is committed for continued awareness on efficient energy
                 management and conducts focused conferences,seminars,workshops
@@ -129,7 +205,7 @@ export default function Home() {
                 stakeholders.
               </Text>
               <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-                <Button rounded={"full"}>Our Current Projects</Button>
+                <Button rounded={"full"} ref={text3}>Our Current Projects</Button>
               </Stack>
             </Stack>
           </Flex>
@@ -139,12 +215,13 @@ export default function Home() {
               objectFit={"contain"}
               src={"/oil.jpg"}
               borderRadius={"20px"}
+              ref={image}
             />
           </Flex>
         </Stack>
       </section>
 
-      <section className="lg:h-screen w-screen">
+      <section className="lg:h-screen w-screen" >
         <Container maxW={"5xl"} py={12}>
           <Stack direction={{ base: "column-reverse", md: "row" }} spacing={10}>
             <Flex>
@@ -155,6 +232,7 @@ export default function Home() {
                 objectFit={"cover"}
                 opacity={"0.9"}
                 borderRadius={"20px"}
+                ref={image2}
               />
             </Flex>
             <Stack spacing={4}>
@@ -312,15 +390,6 @@ export default function Home() {
         </Flex>
       </section>
 
-<<<<<<< HEAD
-{/* test by khaleel */}
-		<section className='h-screen'>
-      
-		</section>
-
-		</>
-	);
-=======
       <section className="min-h-screen w-screen">
         <Box maxW="7xl" mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
           <chakra.h1
@@ -363,5 +432,4 @@ export default function Home() {
       </section>
     </>
   );
->>>>>>> b434b9f41304cde96b113bdbc28d49fcf6782e4a
 }
