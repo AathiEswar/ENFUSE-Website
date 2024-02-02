@@ -62,7 +62,7 @@ export default function Home() {
            {' '}
             <Text color={'blue.400'} as={'span'}>
 			<ReactTypingEffect
-        text={["ENFUSE","ENERGY LEADER"]}
+        text={["ENFUSE","ENERGY LEADER try"]}
       />
             </Text>{' '}
           </Heading>
