@@ -36,23 +36,23 @@ export default function BlogPostWithImage() {
     };
 
     fetchData();
-  }, []);
+  }, [contents]);
 
   console.log(contents);
 
   return (
-    <Center py={6} className='grid grid-cols-1 gap-6 '>
+    <Stack  direction={{ base: 'row', md: 'row' }} py={"6"} className='flex flex-row flex-wrap justify-center '>
       {contents.map((content) => (
-        <Box
+        <Box 
           key={content.id}
-          maxW={'445px'}
+          maxW={'350px'}
           w={'full'}
           bg={useColorModeValue('white', 'gray.900')}
           boxShadow={'2xl'}
           rounded={'md'}
           p={6}
-          overflow={'hidden'}
-          className='col-start-2 col-span-4'
+          overflow={'hidden '}
+          className='m-5'
 
         >
           <Box h={'210px'} bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
@@ -108,6 +108,6 @@ export default function BlogPostWithImage() {
           </Stack>
         </Box>
       ))}
-    </Center>
+    </Stack>
   );
 }

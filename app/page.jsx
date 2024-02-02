@@ -62,7 +62,9 @@ export default function Home() {
            {' '}
             <Text color={'blue.400'} as={'span'}>
 			<ReactTypingEffect
-        text={["ENFUSE","ENERGY LEADER"]}
+        text={["ENFUSE","ENERGY LEADER"]} 
+        typingDelay = {400}
+        eraseDelay = {2000}
       />
             </Text>{' '}
           </Heading>

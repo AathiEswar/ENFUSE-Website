@@ -29,29 +29,31 @@ export default function footer() {
           <div>
             <FooterTitle title="about" />
             <FooterLinkGroup col>
-              <FooterLink href="#">Flowbite</FooterLink>
-              <FooterLink href="#">Tailwind CSS</FooterLink>
+              <FooterLink href="#">History</FooterLink>
+              <FooterLink href="#">The President</FooterLink>
+              <FooterLink href="#">Leadership Team</FooterLink>
+              <FooterLink href="#">Office Bearers</FooterLink>
             </FooterLinkGroup>
           </div>
           <div>
-            <FooterTitle title="Follow us" />
+            <FooterTitle title=" Dissemination" />
             <FooterLinkGroup col>
-              <FooterLink href="#">Github</FooterLink>
-              <FooterLink href="#">Discord</FooterLink>
+              <FooterLink href="#">Journal</FooterLink>
+              <FooterLink href="#">Events </FooterLink>
             </FooterLinkGroup>
           </div>
           <div>
-            <FooterTitle title="Legal" />
+            <FooterTitle title="Resourceful Links" />
             <FooterLinkGroup col>
-              <FooterLink href="#">Privacy Policy</FooterLink>
-              <FooterLink href="#">Terms &amp; Conditions</FooterLink>
+              <FooterLink href="#">Important Links</FooterLink>
+              <FooterLink href="#">External Publications</FooterLink>
             </FooterLinkGroup>
           </div>
         </div>
       </div>
       <FooterDivider />
       <div className="w-full sm:flex sm:items-center sm:justify-between">
-        <FooterCopyright href="#" by="Flowbite™" year={2022} />
+        <FooterCopyright href="/" by="ENFUSE" year={`${new Date().getFullYear()}`} />
         <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
           <FooterIcon href="#" icon={BsFacebook} />
           <FooterIcon href="#" icon={BsInstagram} />
