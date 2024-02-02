@@ -1,4 +1,5 @@
 'use client'
+import ReactTypingEffect from 'react-typing-effect';
 import {
 	Button,
 	Flex,
@@ -13,6 +14,7 @@ import {
   StackDivider,
   Icon,
   useColorModeValue,
+  
   } from '@chakra-ui/react'
   import { IoAnalyticsSharp, IoLogoBitcoin, IoSearchSharp } from 'react-icons/io5'
 import { Link } from "@nextui-org/link";
@@ -59,7 +61,9 @@ export default function Home() {
             </Text> */}
            {' '}
             <Text color={'blue.400'} as={'span'}>
-              ENFUSE
+			<ReactTypingEffect
+        text={["ENFUSE","ENERGY LEADER"]}
+      />
             </Text>{' '}
           </Heading>
           <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}> ENFUSE is committed for continued awareness on efficient energy management and conducts focused conferences,seminars,workshops and training programs in different regions of the country every year,where,professionals and experts in various disciplines from all over the country and abroad,deliberate,interact and share their knowledge and experiences, for the benefit of various stakeholders.
@@ -180,7 +184,7 @@ export default function Home() {
 
 
 		<section className='h-screen'>
-		
+
 		</section>
 		</>
 	);
