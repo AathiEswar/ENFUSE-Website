@@ -11,6 +11,7 @@ import {
   Avatar,
   useColorModeValue,
   Button,
+ Flex, VStack, useBreakpointValue 
 } from '@chakra-ui/react';
 import axios from 'axios';
 import Link from 'next/link'
@@ -41,7 +42,7 @@ export default function BlogPostWithImage() {
   console.log(contents);
 
   return (
-    <Stack  direction={{ base: 'row', md: 'row' }} py={"6"} className='flex flex-row flex-wrap justify-center '>
+    <Stack  direction={{ base: 'row', md: 'col' }} py={"6"} className='flex flex-row flex-wrap justify-center '>
       {contents.map((content) => (
         <Box 
           key={content.id}
