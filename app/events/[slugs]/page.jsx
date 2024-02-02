@@ -28,7 +28,7 @@ export default function Page({ params }) {
   useEffect(() => {
     const fetchData = async () => {
       const apiKey = 'wpcXDxMtnnJ3rpeYcPdQgVNjb1Z4x3MRrFYT'; // Replace with your actual API key
-      const apiUrl = 'https://enfuseapp.microcms.io/api/v1/blogs/'+params.slugs;
+      const apiUrl = 'https://enfuseapp.microcms.io/api/v1/events/'+params.slugs;
 
       try {
         const response = await axios.get(apiUrl, {

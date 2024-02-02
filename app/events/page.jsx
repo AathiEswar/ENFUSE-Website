@@ -20,7 +20,7 @@ export default function BlogPostWithImage() {
   useEffect(() => {
     const fetchData = async () => {
       const apiKey = 'wpcXDxMtnnJ3rpeYcPdQgVNjb1Z4x3MRrFYT';
-      const apiUrl = 'https://enfuseapp.microcms.io/api/v1/blogs/';
+      const apiUrl = 'https://enfuseapp.microcms.io/api/v1/events/';
 
       try {
         const response = await axios.get(apiUrl, {

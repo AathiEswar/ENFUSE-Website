@@ -1,17 +1,14 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Next.js + NextUI",
-	description: "Make beautiful websites regardless of your design experience.",
+	name: "ENFUSE",
+	description: "ENFUSE is committed for continued awareness on efficient energy management and conducts focused conferences,seminars,workshops and training programs in different regions of the country every year,where,professionals and experts in various disciplines from all over the country and abroad,deliberate,interact and share their knowledge and experiences, for the benefit of various stakeholders.",
 	navItems: [
 		{
 			label: "Home",
 			href: "/",
 		},
-    {
-      label: "Events",
-      href: "/events",
-    },
+
     {
       label: "Presentation",
       href: "/presentation",
@@ -62,10 +59,7 @@ export const siteConfig = {
 		label: "About us",
 		href: "/aboutus",
 	  },
-	  {
-		label: "Blogs",
-		href: "/blogs",
-	  },
+
 
 	],
 	links: {
