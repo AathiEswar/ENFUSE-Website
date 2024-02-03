@@ -112,28 +112,33 @@ export default function Home() {
   const text3 = useRef(null);
 
   const image2 = useRef(null);
-  const text21 = useRef(null);
-  const text22 = useRef(null);
-  const text23 = useRef(null);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-      const page1Image = gsap.timeline({
-       
-      });
+      const page1Image = gsap.timeline({});
       const page1Text = gsap.timeline();
       const page2Image = gsap.timeline({
         scrollTrigger:{
           trigger : image2.current,
-          start : "-50% center",
-          end :  "110% center",
+          start : "-70% center",
+          end :  "130% center",
           scrub : false,
           // markers : true,
           toggleActions : "play reverse play reverse"
          
         }
       });
-      const page2Text = gsap.timeline();
+      const page2Text = gsap.timeline({
+        scrollTrigger:{
+          trigger : image2.current,
+          start : "-70% center",
+          end :  "130% center",
+          scrub : false,
+          markers : true,
+          toggleActions : "play reverse play reverse"
+         
+        }
+      });
       page1Image
         .from(image.current, 
           {
@@ -196,10 +201,27 @@ export default function Home() {
            x: 0, 
            duration: 1, 
            scale : 1,
-        
-  
-        
         })
+
+
+
+          page2Text
+          .from(".scroll-in", 
+            {
+              opacity : 0,
+               x: 200, 
+               scale : 0,
+               stagger : 0.5,
+           
+            })
+          .to(".scroll-in", { 
+            opacity : 1,
+             x: 0, 
+             duration: 1, 
+             scale : 1,
+             stagger : 0.5,
+          
+          })
 
 
 
@@ -279,15 +301,15 @@ export default function Home() {
                 ref={image2}
               />
             </Flex>
-            <Stack spacing={4}>
-              <Heading className="text-blue-500">Our Commitment</Heading>
-              <Text color={"gray.500"} fontSize={"lg"}>
+            <Stack spacing={4} >
+              <Heading className="text-blue-500 scroll-in" >Our Commitment</Heading>
+              <Text color={"gray.500"} fontSize={"lg"} className="scroll-in" >
                 ENFUSE seeks to maximze the effectiveness of energy and fuel
                 usage, particularly in the industrial sector, and thus
                 contribute to Nation's industrial development by playing the
                 role of catalyst and advisor.
               </Text>
-              <Stack
+              <Stack className="scroll-in"
                 spacing={4}
                 divider={
                   <StackDivider
