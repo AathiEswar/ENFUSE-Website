@@ -117,8 +117,7 @@ export default function Home() {
     gsap.ticker.lagSmoothing(0);
 
     
-    const page1Image = gsap.timeline({});
-    const page1Text = gsap.timeline();
+    const page1Image = gsap.timeline();
     const page2Image = gsap.timeline({
       scrollTrigger: {
         trigger: image2.current,
@@ -152,37 +151,18 @@ export default function Home() {
         ease: "power2.inOut",
       });
 
+    const page1Text = gsap.timeline();
     page1Text
-      .from(text1.current, {
-        opacity: 0,
-        x: -600,
-      })
-      .to(text1.current, {
-        x: 0,
-        duration: 0.5,
-        ease: "power2.inOut",
-        opacity: 1,
-      })
-      .from(text2.current, {
-        x: -600,
-        opacity: 0.1,
-      })
-      .to(text2.current, {
-        x: 0,
-        duration: 0.5,
-        ease: "power2.inOut",
-        opacity: 1,
-      })
-      .from(text3.current, {
-        x: -600,
-        opacity: 0,
-      })
-      .to(text3.current, {
-        x: 0,
-        duration: 0.5,
-        ease: "power2.inOut",
-        opacity: 1,
-      });
+          .from(".page1text" , {
+            x: -400,
+            opacity : 0,
+            stagger : 0.5,  
+          })
+          .to(".page1text",{
+            x: 0,
+            opacity : 1,
+            
+          })
 
     page2Image
       .from(image2.current, {
@@ -229,6 +209,7 @@ export default function Home() {
         scale: 0.5,
         opacity: 0,
         duration: 0.9,
+        
       })
       .to(".page3", {
         scale: 1,
@@ -242,9 +223,9 @@ export default function Home() {
         <Stack direction={{ base: "column", md: "row" }}>
           <Flex p={8} flex={1} align={"center"} justify={"center"}>
             <Stack spacing={6} w={"full"} maxW={"lg"}>
-              <Heading
+              <Heading className="page1text"
                 fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
-                ref={text1}
+          
               >
                 {/* <Text
               as={'span'}
@@ -272,7 +253,8 @@ export default function Home() {
               <Text
                 fontSize={{ base: "md", lg: "lg" }}
                 color={"gray.500"}
-                ref={text2}
+             
+                className="page1text"
               >
                 {" "}
                 ENFUSE is committed for continued awareness on efficient energy
@@ -283,8 +265,8 @@ export default function Home() {
                 their knowledge and experiences, for the benefit of various
                 stakeholders.
               </Text>
-              <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-                <Button rounded={"full"} ref={text3}>
+              <Stack direction={{ base: "column", md: "row" }} spacing={4}  className="page1text">
+                <Button rounded={"full"} > 
                   Our Current Projects
                 </Button>
               </Stack>
