@@ -18,8 +18,14 @@ import {
 import {Card,Skeleton} from "@nextui-org/react";
 import { BsArrowUpRight, BsHeartFill, BsHeart } from 'react-icons/bs'
 import axios from 'axios';
-import Link from 'next/link'
-export default function BlogPostWithImage() {
+import Link from 'next/link';
+import '../load.css';
+
+const Loading = () => {
+  return <div className="loading-spinner"></div>;
+};
+
+const BlogPostWithImage = () => {
   const [contents, setContents] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -122,3 +128,25 @@ export default function BlogPostWithImage() {
     </Stack>
   );
 }
+
+const MainComponent = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false); 
+    }, 5000); 
+  }, []); 
+
+  return (
+    <div>
+      {isLoading ? (
+        <Loading /> 
+      ) : (
+        <BlogPostWithImage />
+      )}
+    </div>
+  );
+};
+
+export default MainComponent;

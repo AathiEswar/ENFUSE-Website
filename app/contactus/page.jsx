@@ -5,6 +5,8 @@ import { Card } from 'flowbite-react';
 import React from "react";
 import { AspectRatio } from '@chakra-ui/react';
 export default function Component() {
+
+  
   return (
 	<>
     <Card href="#" className="max-w-sm">

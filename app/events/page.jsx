@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import '../load.css';
 import {
   Box,
   Center,
@@ -15,8 +16,18 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import Link from 'next/link'
-import {Card, Skeleton} from "@nextui-org/react";
-export default function BlogPostWithImage() {
+
+// Loading component
+const Loading = () => {
+  return <div className="loading-spinner"></div>;
+};
+
+// Actual content component
+const ContentComponent = () => {
+  return <div>This is the content that has loaded!</div>;
+};
+
+const BlogPostWithImage = () => {
   const [contents, setContents] = useState([]);
 const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -135,3 +146,26 @@ const [loading, setLoading] = useState(true);
     </Stack>
   );
 }
+
+const MainComponent = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+   
+    setTimeout(() => {
+      setIsLoading(false); 
+    }, 4500);
+  }, []); 
+
+  return (
+    <div>
+      {isLoading ? (
+        <Loading /> 
+      ) : (
+        <BlogPostWithImage /> 
+      )}
+    </div>
+  );
+};
+
+export default MainComponent;
