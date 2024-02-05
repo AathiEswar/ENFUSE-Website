@@ -22,7 +22,6 @@ import React from "react";
 import {users} from "./data";
 import {Tabs, Tab, Card, CardBody,Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, getKeyValue} from "@nextui-org/react";
 export default function AboutPage() {
-<<<<<<< HEAD
 	const Feature = ({ text, icon, iconBg }) => {
 		return (
 		  <Stack direction={'row'} align={'center'}>
@@ -34,7 +33,7 @@ export default function AboutPage() {
 		)
 	  }
 	  const [page, setPage] = React.useState(1);
-  const rowsPerPage = 10;
+  const rowsPerPage =7;
 
   const pages = Math.ceil(users.length / rowsPerPage);
 
@@ -44,9 +43,6 @@ export default function AboutPage() {
 
     return users.slice(start, end);
   }, [page, users]);
-=======
-	
->>>>>>> 4c38ba55ca3a1e9e0e89afeb9c30ddba1bcd7343
 const PlayIcon = createIcon({
 	displayName: 'PlayIcon',
 	viewBox: '0 0 58 58',
@@ -148,8 +144,8 @@ const PlayIcon = createIcon({
 
         </Tab>
 		<Tab key="leadership-team" title="Leadership Team">
-		<section className="min-h-screen">
-			<Container maxW={'3xl'} py={12} minWidth={'2xl'}>
+		<section className="min-h-screen ">
+			<Container maxW={'4xl'}  className="sm:w-3/4">
 	
 		<Table 
       aria-label="Example table with client side pagination"
