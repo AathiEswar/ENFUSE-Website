@@ -18,7 +18,9 @@ import {
   IconProps,
   useColorModeValue,
 } from '@chakra-ui/react'
-
+import React from "react";
+import {users} from "./data";
+import {Tabs, Tab, Card, CardBody,Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, getKeyValue} from "@nextui-org/react";
 export default function AboutPage() {
 	const Feature = ({ text, icon, iconBg }) => {
 		return (
@@ -30,7 +32,17 @@ export default function AboutPage() {
 		  </Stack>
 		)
 	  }
-	
+	  const [page, setPage] = React.useState(1);
+  const rowsPerPage = 10;
+
+  const pages = Math.ceil(users.length / rowsPerPage);
+
+  const items = React.useMemo(() => {
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    return users.slice(start, end);
+  }, [page, users]);
 const PlayIcon = createIcon({
 	displayName: 'PlayIcon',
 	viewBox: '0 0 58 58',
@@ -56,7 +68,10 @@ const PlayIcon = createIcon({
 //   }
 	return (
 		<>
-			<section className="min-h-screen">
+		<div className="flex w-full flex-col justify-center  ">
+      <Tabs aria-label="Options">
+        <Tab key="president" title="President">
+		<section className="min-h-screen">
 			<Container maxW={'5xl'} py={12}>
 	
 	<Stack direction={{ base: 'column', md: 'row' }} spacing={10} className='flex flex-col  items-center'>
@@ -87,6 +102,98 @@ const PlayIcon = createIcon({
 	</Stack>
   </Container>
 	</section>
+
+        </Tab>
+        <Tab key="history" title="History">
+   
+ 
+		  <section className="min-h-screen">
+			<Container maxW={'5xl'} py={12}>
+	
+	<Stack direction={{ base: 'column', md: 'row' }} spacing={10} className='flex flex-col  items-center'>
+	
+	
+		<Image
+		  rounded={'md'}
+		 	w={{base:"300px"}}
+		  alt={'feature image'}
+		  src={
+			"/history.jpg"
+			}
+		  objectFit={'contain'}
+		  opacity={"1"}
+		  borderRadius={"20px"}
+
+	
+		/>
+	  
+	  <Stack spacing={4} className=''>
+		
+		<Heading className='text-blue-500  text-center md:text-start'>History of Enfuse</Heading>
+		<Text color={'gray.500'} fontSize={'lg'}>
+		Way back in 1948 a conference of Steam users and boiler inspectors was held in Madras under the initiation of then Government of Madras, Shri.M Bhakthavatsalam, the then Hon. Minister of Public Works inaugurated the conference. As a fall-out of this Conference, The Madras Provincial Steam Users’ Association was formedand was so registered. The Association was formed on the lines of Manchester Steam Users’Association with the objective of assisting boiler owners and users for solving their technical problems. In 1953 the constitution and Rules of the Association were amended to include the newly constituted states of Andhra,Mysore,Tanvancore and Cochin.The name was changed to ‘South Indian Steam & Fuel Users’ Association’. In January 1965, the name was again changed to ‘Steam & Fuel Users’ Association of India’ in order to bring into its fold, not only steam users, but also all types of fuel using industries. From 1977, the Association has not only concerned itself with matters pertaining to steam and fuel use, but also several others forms of energy, such as electricity, compressed air, renewable sources etc., In order therefore, to reflect its role, scope and range of interests more accurately, in January 1990, the Association has been renamed as the “Energy and Fuel Users’Association of India”.
+		
+		</Text>
+		
+	  </Stack>
+	  
+	</Stack>
+  </Container>
+	</section>
+
+
+        </Tab>
+		<Tab key="leadership-team" title="Leadership Team">
+		<section className="min-h-screen">
+			<Container maxW={'3xl'} py={12} minWidth={'2xl'}>
+	
+		<Table 
+      aria-label="Example table with client side pagination"
+      bottomContent={
+        <div className="flex w-full justify-center">
+          <Pagination
+            isCompact
+            showControls
+            showShadow
+            color="secondary"
+            page={page}
+            total={pages}
+            onChange={(page) => setPage(page)}
+          />
+        </div>
+      }
+	  classNames={{
+        wrapper: "min-h-[222px]",
+      }}
+    >
+      <TableHeader>
+        <TableColumn key="name">NAME</TableColumn>
+		<TableColumn key="address">ADDRESS</TableColumn>
+        <TableColumn key="role">ROLE</TableColumn>
+        <TableColumn key="email">EMAIL</TableColumn>
+		<TableColumn key="phonenumber">PHONE NO</TableColumn>
+      </TableHeader>
+      <TableBody items={items}>
+        {(item) => (
+          <TableRow key={item.name}>
+            {(columnKey) => <TableCell className='text-white'>{getKeyValue(item, columnKey)}</TableCell>}
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
+	  </Container>
+	</section>
+        </Tab>
+        <Tab key="office-bearers" title="Office Bearers">
+          <Card>
+            <CardBody>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </CardBody>
+          </Card>  
+        </Tab>
+      </Tabs>
+    </div>  
+			
 		</>
 	);
 }
