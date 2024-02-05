@@ -18,8 +18,14 @@ import {
 
 import { BsArrowUpRight, BsHeartFill, BsHeart } from 'react-icons/bs'
 import axios from 'axios';
-import Link from 'next/link'
-export default function BlogPostWithImage() {
+import Link from 'next/link';
+import '../load.css';
+
+const Loading = () => {
+  return <div className="loading-spinner"></div>;
+};
+
+const BlogPostWithImage = () => {
   const [contents, setContents] = useState([]);
   const [liked, setLiked] = useState(false)
   useEffect(() => {
@@ -102,3 +108,26 @@ export default function BlogPostWithImage() {
     </Stack>
   );
 }
+
+const MainComponent = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate data loading
+    setTimeout(() => {
+      setIsLoading(false); // Once loading is done, set isLoading to false
+    }, 5000); // Simulated 2 seconds delay
+  }, []); // Empty dependency array, meaning it runs only once after the initial render
+
+  return (
+    <div>
+      {isLoading ? (
+        <Loading /> // Render loading component if isLoading is true
+      ) : (
+        <BlogPostWithImage /> // Render content component if isLoading is false
+      )}
+    </div>
+  );
+};
+
+export default MainComponent;
