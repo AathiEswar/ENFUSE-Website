@@ -13,6 +13,10 @@ export const siteConfig = {
       label: "Presentation",
       href: "/presentation",
     },
+	{
+		label: "Image Gallery",
+		href: "/image-gallery",
+	  },
     {
       label: "contact us",
       href: "/contactus",
@@ -43,6 +47,10 @@ export const siteConfig = {
       label: "Presentation",
       href: "/presentation",
     },
+	{
+		label: "Image Gallery",
+		href: "/image-gallery",
+	  },
     {
       label: "Memberships",
       href: "/memberships",
