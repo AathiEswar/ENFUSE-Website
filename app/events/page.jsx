@@ -156,7 +156,7 @@ const MainComponent = () => {
    
     setTimeout(() => {
       setIsLoading(false); 
-    }, 4500);
+    }, 1000);
   }, []); 
 
   return (
