@@ -12,6 +12,8 @@ import {
   Avatar,
   useColorModeValue,
   Button,
+  Card,
+  Skeleton,
  Flex, VStack, useBreakpointValue 
 } from '@chakra-ui/react';
 import axios from 'axios';
@@ -29,7 +31,7 @@ const ContentComponent = () => {
 
 const BlogPostWithImage = () => {
   const [contents, setContents] = useState([]);
-
+const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       const apiKey = 'wpcXDxMtnnJ3rpeYcPdQgVNjb1Z4x3MRrFYT';
@@ -46,6 +48,9 @@ const BlogPostWithImage = () => {
       } catch (error) {
         console.error('Error fetching data:', error.message);
       }
+      finally {
+        setLoading(false);
+      }
     };
 
     fetchData();
@@ -55,7 +60,26 @@ const BlogPostWithImage = () => {
 
   return (
     <Stack  direction={{ base: 'row', md: 'col' }} py={"6"} className='flex flex-row flex-wrap justify-center '>
-      {contents.map((content) => (
+      {loading ? (
+        Array.from({ length: 5 }).map((_, index) => (
+          <Card className="w-[200px] space-y-5 p-4" radius="lg">
+          <Skeleton className="rounded-lg">
+            <div className="h-24 rounded-lg bg-default-300"></div>
+          </Skeleton>
+          <div className="space-y-3">
+            <Skeleton className="w-3/5 rounded-lg">
+              <div className="h-3 w-3/5 rounded-lg bg-default-200"></div>
+            </Skeleton>
+            <Skeleton className="w-4/5 rounded-lg">
+              <div className="h-3 w-4/5 rounded-lg bg-default-200"></div>
+            </Skeleton>
+            <Skeleton className="w-2/5 rounded-lg">  
+              <div className="h-3 w-2/5 rounded-lg bg-default-300"></div>
+            </Skeleton>
+          </div>
+        </Card>
+        ))
+      ) : (contents.map((content) => (
         <Box 
           key={content.id}
           maxW={'350px'}
@@ -120,7 +144,7 @@ const BlogPostWithImage = () => {
             </Stack>
           </Stack>
         </Box>
-      ))}
+      )))}
     </Stack>
   );
 }
