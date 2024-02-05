@@ -12,6 +12,8 @@ import {
   Avatar,
   useColorModeValue,
   Button,
+  Card,
+  Skeleton,
  Flex, VStack, useBreakpointValue 
 } from '@chakra-ui/react';
 import axios from 'axios';

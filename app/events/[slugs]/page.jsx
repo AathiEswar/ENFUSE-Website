@@ -15,6 +15,7 @@ import {
   useColorModeValue,
   Container,
   VStack,
+  Card,
 } from '@chakra-ui/react';
 import {Card, Skeleton} from "@nextui-org/react";
 // Import axios for data fetching
