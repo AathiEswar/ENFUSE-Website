@@ -129,18 +129,18 @@ const MainComponent = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate data loading
+   
     setTimeout(() => {
-      setIsLoading(false); // Once loading is done, set isLoading to false
-    }, 4500); // Simulated 2 seconds delay
-  }, []); // Empty dependency array, meaning it runs only once after the initial render
+      setIsLoading(false); 
+    }, 4500);
+  }, []); 
 
   return (
     <div>
       {isLoading ? (
-        <Loading /> // Render loading component if isLoading is true
+        <Loading /> 
       ) : (
-        <BlogPostWithImage /> // Render content component if isLoading is false
+        <BlogPostWithImage /> 
       )}
     </div>
   );
