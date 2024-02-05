@@ -75,7 +75,7 @@ function StatsCard(props) {
       border={"1px solid"}
       borderColor={useColorModeValue("white", "white")}
       rounded={"lg"}
-      className="text-white hover:text-black hover:bg-gray-300 hover:scale-105 duration-500"
+      className="text-white hover:text-black hover:bg-gray-300 hover:scale-105 duration-700 [clip-path:polygon(-2%_-2%,100%_-2%,100%_50%,-2%_50%)]  hover:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]"
     >
       <StatLabel
         fontWeight={"bold"}
@@ -102,20 +102,7 @@ export default function Home() {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis();
-
-    lenis.on("scroll", (e) => {
-      console.log(e);
-    });
-
-    lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
-
+   
     
     const page1Image = gsap.timeline();
     const page2Image = gsap.timeline({
@@ -196,7 +183,7 @@ export default function Home() {
     const page3 = gsap.timeline({
       scrollTrigger: {
         trigger: ".page3",
-        start: "-80% center",
+        start: "top center",
         end: "100% center",
         scrub: true,
 
@@ -206,15 +193,60 @@ export default function Home() {
     });
     page3
       .from(".page3", {
-        scale: 0.5,
         opacity: 0,
-        duration: 0.9,
+        webkitClipPath: 'inset(90%)',
+        clipPath: 'inset(90%)'
+        
         
       })
       .to(".page3", {
-        scale: 1,
-        opacity: 1,
+       
       });
+
+      const races = document.querySelector(".panel-wrapper");
+      console.log(races.offsetWidth)
+
+      function getScrollAmount() {
+          let racesWidth = races.scrollWidth;
+          return -(racesWidth - window.innerWidth);
+      }
+
+      const tween = gsap.to(races, {
+          x: getScrollAmount,
+          duration: 3,
+          ease: "none",
+      });
+
+
+      ScrollTrigger.create({
+          trigger: ".scroll-wrapper",
+          start: "35% 20%",
+          end: () => `+=${getScrollAmount() * -1.5} 50%`,
+          pin: true,
+          animation: tween,
+          scrub: 1,
+          invalidateOnRefresh: true,
+          // markers: true
+      })
+
+
+
+
+
+      const lenis = new Lenis();
+
+      lenis.on("scroll", (e) => {
+        console.log(e);
+      });
+  
+      lenis.on("scroll", ScrollTrigger.update);
+  
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+  
+      gsap.ticker.lagSmoothing(0);
+  
   }, []);
 
   return (
@@ -392,41 +424,94 @@ export default function Home() {
         </Flex>
       </section>
 
-      {/* test */}
-      <section className="h-screen flex items-center w-screen">
+      {/* <section className="h-screen flex items-center w-screen">
         <Flex
           w={"full"}
-          h={"50vh"}
-          // backgroundImage={
+          h={"50vh"} */
+           //backgroundImage={
           //   'url(https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)'
           // }
           // backgroundSize={'cover'}
           // backgroundPosition={'center center'}
-          backgroundColor={"blue.300"}
-          className="flex justify-center"
-        >
-          <VStack
-            className="relative"
-            w={"full"}
-            justify={"center"}
-            alignItems={"center"}
-            px={useBreakpointValue({ base: 4, md: 8 })}
-            bgGradient={"linear(to-r,red.300, blue.300)"}
-          >
+      //     backgroundColor={"blue.300"}
+      //     className="flex justify-center"
+      //   >
+      //     <VStack
+      //       className="relative"
+      //       w={"full"}
+      //       justify={"center"}
+      //       alignItems={"center"}
+      //       px={useBreakpointValue({ base: 4, md: 8 })}
+      //       bgGradient={"linear(to-r,red.300, blue.300)"}
+      //     >
+      //       <Text
+      //         textColor={"white"}
+      //         opacity={0.1}
+      //         fontSize={"30vw"}
+      //         className="absolute pb-16 "
+      //       >
+      //         VISION
+      //       </Text>
+      //       <Stack maxW={"4xl"} align={"flex-start"} spacing={6}>
+      //         <Text
+      //           color={"gray.100"}
+      //           fontWeight={700}
+      //           lineHeight={1.2}
+      //           fontSize={useBreakpointValue({ base: "2xl", md: "3xl" })}
+      //         >
+      //           Achieving Energy Security and Energy Independence by the year
+      //           2030. The Energy & Fuel Users’ Association of India would
+      //           Develop networking with Governmental bodies. Multilateral
+      //           agencies and Institutes, research institutions national and
+      //           international, to achieve these objectives.
+      //         </Text>
+      //         <Stack direction={"row"}>
+      //           <Button
+      //             bg={"blue.400"}
+      //             rounded={"full"}
+      //             color={"white"}
+      //             _hover={{ bg: "blue.500" }}
+      //           >
+      //             Know More About Us
+      //           </Button>
+      //           {/* <Button
+      //         bg={'whiteAlpha.300'}
+      //         rounded={'full'}
+      //         color={'white'}
+      //         _hover={{ bg: 'whiteAlpha.500' }}>
+      //         Know More About Us
+      //       </Button> */}
+      //         </Stack>
+      //       </Stack>
+      //     </VStack>
+      //   </Flex>
+      // </section>
+      }
+
+        <section className="h-fit bg-gradient-to-r from-red-500 to-blue-500 ">
+            
+        <div className="scroll-wrapper overflow-x-hidden ">
+            <div className="panel-wrapper w-fit flex flex-nowrap ">
+           
+
+           
             <Text
               textColor={"white"}
               opacity={0.1}
               fontSize={"30vw"}
-              className="absolute pb-16 "
+              className="shrink-0"
             >
               VISION
             </Text>
-            <Stack maxW={"4xl"} align={"flex-start"} spacing={6}>
-              <Text
+          
+            <Box className="panel h-screen w-screen ">
+            <Text
                 color={"gray.100"}
                 fontWeight={700}
                 lineHeight={1.2}
                 fontSize={useBreakpointValue({ base: "2xl", md: "3xl" })}
+                className="panel h-screen w-screen shrink-0  flex justify-center items-center px-60  "
+          
               >
                 Achieving Energy Security and Energy Independence by the year
                 2030. The Energy & Fuel Users’ Association of India would
@@ -434,27 +519,15 @@ export default function Home() {
                 agencies and Institutes, research institutions national and
                 international, to achieve these objectives.
               </Text>
-              <Stack direction={"row"}>
-                <Button
-                  bg={"blue.400"}
-                  rounded={"full"}
-                  color={"white"}
-                  _hover={{ bg: "blue.500" }}
-                >
-                  Know More About Us
-                </Button>
-                {/* <Button
-              bg={'whiteAlpha.300'}
-              rounded={'full'}
-              color={'white'}
-              _hover={{ bg: 'whiteAlpha.500' }}>
-              Know More About Us
-            </Button> */}
-              </Stack>
-            </Stack>
-          </VStack>
-        </Flex>
-      </section>
+              </Box>
+            
+            </div>
+
+        </div>
+
+        
+        </section>
+   
 
       <section className="min-h-screen w-screen">
         <Box maxW="7xl" mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
@@ -468,7 +541,7 @@ export default function Home() {
           >
             OUR MISSION
           </chakra.h1>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, lg: 8 }}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 10, lg: 20 }}>
             <StatsCard
               title={"VOLUNTEERING"}
               stat={
@@ -476,6 +549,7 @@ export default function Home() {
               }
             />
             <StatsCard
+              
               title={"HARMONISING"}
               stat={
                 "integrated outlook harmonising energy management and environment management"
