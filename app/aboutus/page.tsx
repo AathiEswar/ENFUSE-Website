@@ -185,7 +185,7 @@ const testimonials = [
 		<>
 		<div className="flex w-full flex-col justify-center  ">
       <Tabs aria-label="Options">
-        <Tab key="president" title="President">
+        <Tab key="president" title="President" id="1">
 		<section className="min-h-screen">
 			<Container maxW={'5xl'} py={12}>
 	
@@ -219,10 +219,10 @@ const testimonials = [
 	</section>
 
         </Tab>
-        <Tab key="history" title="History">
+        <Tab key="history" title="History" id="2">
    
  
-		  <section className="min-h-screen">
+		  <section className="min-h-screen" >
 			<Container maxW={'5xl'} py={12}>
 	
 	<Stack direction={{ base: 'column', md: 'row' }} spacing={10} className='flex flex-col  items-center'>
@@ -245,7 +245,7 @@ const testimonials = [
 	  <Stack spacing={4} className=''>
 		
 		<Heading className='text-blue-500  text-center md:text-start'>History of Enfuse</Heading>
-		<Text color={'gray.500'} fontSize={'lg'}>
+		<Text color={'gray.500'} fontSize={'lg'} >
 		Way back in 1948 a conference of Steam users and boiler inspectors was held in Madras under the initiation of then Government of Madras, Shri.M Bhakthavatsalam, the then Hon. Minister of Public Works inaugurated the conference. As a fall-out of this Conference, The Madras Provincial Steam Users’ Association was formedand was so registered. The Association was formed on the lines of Manchester Steam Users’Association with the objective of assisting boiler owners and users for solving their technical problems. In 1953 the constitution and Rules of the Association were amended to include the newly constituted states of Andhra,Mysore,Tanvancore and Cochin.The name was changed to ‘South Indian Steam & Fuel Users’ Association’. In January 1965, the name was again changed to ‘Steam & Fuel Users’ Association of India’ in order to bring into its fold, not only steam users, but also all types of fuel using industries. From 1977, the Association has not only concerned itself with matters pertaining to steam and fuel use, but also several others forms of energy, such as electricity, compressed air, renewable sources etc., In order therefore, to reflect its role, scope and range of interests more accurately, in January 1990, the Association has been renamed as the “Energy and Fuel Users’Association of India”.
 		
 		</Text>
@@ -258,7 +258,7 @@ const testimonials = [
 
 
         </Tab>
-		<Tab key="leadership-team" title="Leadership Team">
+		<Tab key="leadership-team" title="Leadership Team"id="3">
 		<section className="min-h-screen ">
 			<Container maxW={'4xl'}  className="sm:w-3/4">
 	
@@ -299,7 +299,7 @@ const testimonials = [
 	  </Container>
 	</section>
         </Tab>
-        <Tab key="office-bearers" title="Achievements">
+        <Tab key="office-bearers" title="Achievements" id="4">
 		<Flex
       textAlign={'center'}
       pt={10}

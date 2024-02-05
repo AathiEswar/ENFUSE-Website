@@ -8,7 +8,7 @@ import {
     FooterLinkGroup,
     FooterTitle,
   } from 'flowbite-react';
-  import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
+  import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter , BsYoutube } from 'react-icons/bs';
   
 
 
@@ -29,10 +29,10 @@ export default function footer() {
           <div>
             <FooterTitle title="about" />
             <FooterLinkGroup col>
-              <FooterLink href="#">History</FooterLink>
-              <FooterLink href="#">The President</FooterLink>
-              <FooterLink href="#">Leadership Team</FooterLink>
-              <FooterLink href="#">Office Bearers</FooterLink>
+              <FooterLink href="/aboutus#2">History</FooterLink>
+              <FooterLink href="/aboutus#1">The President</FooterLink>
+              <FooterLink href="/aboutus#3">Leadership Team</FooterLink>
+              <FooterLink href="/aboutus#4">Achievements</FooterLink>
             </FooterLinkGroup>
           </div>
           <div>
@@ -45,8 +45,8 @@ export default function footer() {
           <div>
             <FooterTitle title="Resourceful Links" />
             <FooterLinkGroup col>
-              <FooterLink href="#">Important Links</FooterLink>
-              <FooterLink href="#">External Publications</FooterLink>
+              <FooterLink href="/memberships">Membership</FooterLink>
+              <FooterLink href="/contactus">Contact US</FooterLink>
             </FooterLinkGroup>
           </div>
         </div>
@@ -55,11 +55,7 @@ export default function footer() {
       <div className="w-full sm:flex sm:items-center sm:justify-between">
         <FooterCopyright href="/" by="ENFUSE" year={`${new Date().getFullYear()}`} />
         <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-          <FooterIcon href="#" icon={BsFacebook} />
-          <FooterIcon href="#" icon={BsInstagram} />
-          <FooterIcon href="#" icon={BsTwitter} />
-          <FooterIcon href="#" icon={BsGithub} />
-          <FooterIcon href="#" icon={BsDribbble} />
+          
         </div>
       </div>
     </div>
