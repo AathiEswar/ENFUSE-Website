@@ -43,6 +43,8 @@ import { GithubIcon } from "@/components/icons";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { easeIn, easeInOut } from "framer-motion";
 
+import Lenis from "@studio-freight/lenis";
+
 const Feature = ({ text, icon, iconBg }) => {
   return (
     <Stack direction={"row"} align={"center"}>
@@ -90,87 +92,141 @@ function StatsCard(props) {
   );
 }
 
-
 export default function Home() {
-
-
-
-
-
-
- 
   const image = useRef(null);
   const text1 = useRef(null);
   const text2 = useRef(null);
   const text3 = useRef(null);
 
   const image2 = useRef(null);
-  const text21 = useRef(null);
-  const text22 = useRef(null);
-  const text23 = useRef(null);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-      const page1Image = gsap.timeline();
-      const page1Text = gsap.timeline();
-      const page2Image = gsap.timeline();
-      const page2Text = gsap.timeline();
-      page1Image
-        .from(image.current, 
-          {
-            opacity:0.1,
-             x: 800,  
-           
+    const lenis = new Lenis();
+
+    lenis.on("scroll", (e) => {
+      console.log(e);
+    });
+
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    
+    const page1Image = gsap.timeline();
+    const page2Image = gsap.timeline({
+      scrollTrigger: {
+        trigger: image2.current,
+        start: "-70% center",
+        end: "200% center",
+        scrub: true,
+        // markers : true,
+        // toggleActions : "play reverse play reverse"
+      },
+    });
+    const page2Text = gsap.timeline({
+      scrollTrigger: {
+        trigger: image2.current,
+
+        start: "-70% center",
+        end: "200% center",
+        scrub: true,
+        // markers : true,
+        // toggleActions : "play reverse play reverse"
+      },
+    });
+    page1Image
+      .from(image.current, {
+        opacity: 0,
+        x: 800,
+      })
+      .to(image.current, {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power2.inOut",
+      });
+
+    const page1Text = gsap.timeline();
+    page1Text
+          .from(".page1text" , {
+            x: -400,
+            opacity : 0,
+            stagger : 0.5,  
           })
-        .to(image.current, { 
-          delay :0.1,
-          opacity:1,
-           x: 0, 
-           duration: 1,
-           ease : "power2.inOut",
-         
-        })
+          .to(".page1text",{
+            x: 0,
+            opacity : 1,
+            
+          })
 
-        page1Text
-        .from(text1.current , {
-          opacity:0.1,
-          x : -600,
-        })
-        .to(text1.current , {
-          delay : 0.1,
-            x:0,
-            duration : 0.5,
-            ease : "power2.inOut", opacity:1,
-        })  
-        .from(text2.current , {
-          x : -600, opacity:0.1,
-        })
-        .to(text2.current , {
-          delay : 0.1,
-            x:0,
-            duration : 0.2,
-            ease : "power2.inOut", opacity:1,
-        }) 
-        .from(text3.current , {
-          x : -600, opacity:0.1,
-        })
-        .to(text3.current , {
-            x:0,
-            duration : 0.2,
-            ease : "power2.inOut", opacity:1,
-        }) 
+    page2Image
+      .from(image2.current, {
+        opacity: 0,
+        x: -200,
 
+        scale: 0.5,
+        duration: 1,
+      })
+      .to(image2.current, {
+        delay: 0.5,
+        opacity: 1,
+        x: 0,
+
+        scale: 1,
+      });
+
+    page2Text
+      .from(".scroll-in", {
+        opacity: 0,
+        x: 200,
+        scale: 0,
+        duration: 0.5,
+      })
+      .to(".scroll-in", {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+      });
+
+    const page3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".page3",
+        start: "-80% center",
+        end: "100% center",
+        scrub: true,
+
+        // markers: true,
+        // toggleActions : "play reverse play reverse"
+      },
+    });
+    page3
+      .from(".page3", {
+        scale: 0.5,
+        opacity: 0,
+        duration: 0.9,
         
-
-
+      })
+      .to(".page3", {
+        scale: 1,
+        opacity: 1,
+      });
   }, []);
+
   return (
     <>
-      <section className="lg:h-screen w-screen" >
+      <section className="lg:h-screen w-screen">
         <Stack direction={{ base: "column", md: "row" }}>
           <Flex p={8} flex={1} align={"center"} justify={"center"}>
             <Stack spacing={6} w={"full"} maxW={"lg"}>
-              <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }} ref={text1}  >
+              <Heading className="page1text"
+                fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+          
+              >
                 {/* <Text
               as={'span'}
               position={'relative'}
@@ -190,11 +246,16 @@ export default function Home() {
                   <ReactTypingEffect
                     text={["ENFUSE", "ENERGY LEADER"]}
                     typingDelay={400}
-                    eraseDelay={2000}   
+                    eraseDelay={2000}
                   />
                 </Text>{" "}
               </Heading>
-              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"} ref={text2} >
+              <Text
+                fontSize={{ base: "md", lg: "lg" }}
+                color={"gray.500"}
+             
+                className="page1text"
+              >
                 {" "}
                 ENFUSE is committed for continued awareness on efficient energy
                 management and conducts focused conferences,seminars,workshops
@@ -204,8 +265,10 @@ export default function Home() {
                 their knowledge and experiences, for the benefit of various
                 stakeholders.
               </Text>
-              <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-                <Button rounded={"full"} ref={text3}>Our Current Projects</Button>
+              <Stack direction={{ base: "column", md: "row" }} spacing={4}  className="page1text">
+                <Button rounded={"full"} > 
+                  Our Current Projects
+                </Button>
               </Stack>
             </Stack>
           </Flex>
@@ -221,7 +284,7 @@ export default function Home() {
         </Stack>
       </section>
 
-      <section className="lg:h-screen w-screen" >
+      <section className="lg:h-screen w-screen">
         <Container maxW={"5xl"} py={12}>
           <Stack direction={{ base: "column-reverse", md: "row" }} spacing={10}>
             <Flex>
@@ -236,14 +299,17 @@ export default function Home() {
               />
             </Flex>
             <Stack spacing={4}>
-              <Heading className="text-blue-500">Our Commitment</Heading>
-              <Text color={"gray.500"} fontSize={"lg"}>
+              <Heading className="text-blue-500 scroll-in">
+                Our Commitment
+              </Heading>
+              <Text color={"gray.500"} fontSize={"lg"} className="scroll-in">
                 ENFUSE seeks to maximze the effectiveness of energy and fuel
                 usage, particularly in the industrial sector, and thus
                 contribute to Nation's industrial development by playing the
                 role of catalyst and advisor.
               </Text>
               <Stack
+                className="scroll-in"
                 spacing={4}
                 divider={
                   <StackDivider
@@ -283,7 +349,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="lg:h-screen w-screen">
+      <section className="lg:h-screen w-screen page3">
         <Flex
           w={"full"}
           h={"100vh"}

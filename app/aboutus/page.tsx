@@ -22,6 +22,7 @@ import React from "react";
 import {users} from "./data";
 import {Tabs, Tab, Card, CardBody,Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, getKeyValue} from "@nextui-org/react";
 export default function AboutPage() {
+<<<<<<< HEAD
 	const Feature = ({ text, icon, iconBg }) => {
 		return (
 		  <Stack direction={'row'} align={'center'}>
@@ -43,6 +44,9 @@ export default function AboutPage() {
 
     return users.slice(start, end);
   }, [page, users]);
+=======
+	
+>>>>>>> 4c38ba55ca3a1e9e0e89afeb9c30ddba1bcd7343
 const PlayIcon = createIcon({
 	displayName: 'PlayIcon',
 	viewBox: '0 0 58 58',
