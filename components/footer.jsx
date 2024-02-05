@@ -14,7 +14,7 @@ import {
 
 export default function footer() {
   return (
-    <Footer container>
+    <Footer container className='w-screen'>
     <div className="w-full">
       <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
         <div>
@@ -38,7 +38,7 @@ export default function footer() {
           <div>
             <FooterTitle title=" Dissemination" />
             <FooterLinkGroup col>
-              <FooterLink href="#">Journal</FooterLink>
+              <FooterLink href="/journal">Journal</FooterLink>
               <FooterLink href="/events">Events </FooterLink>
             </FooterLinkGroup>
           </div>

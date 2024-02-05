@@ -14,21 +14,17 @@ export const siteConfig = {
       href: "/presentation",
     },
     {
-      label: "Memberships",
-      href: "/memberships",
-    },
-    {
       label: "contact us",
       href: "/contactus",
     },
-	{
-		label: "Image gallery",
-		href: "/gallery",
-	  },
 	  {
 		label: "About us",
 		href: "/aboutus",
-	  }
+	  },
+	  {
+		label: "Journals",
+		href: "/journal",
+	  },
 	],
 	navMenuItems: [
 		{
@@ -39,6 +35,10 @@ export const siteConfig = {
       label: "Events",
       href: "/events",
     },
+	{
+		label: "Journals",
+		href: "/journal",
+	  },
     {
       label: "Presentation",
       href: "/presentation",
@@ -51,10 +51,6 @@ export const siteConfig = {
       label: "contact us",
       href: "/contactus",
     },
-	{
-		label: "Image gallery",
-		href: "/gallery",
-	  },
 	  {
 		label: "About us",
 		href: "/aboutus",
