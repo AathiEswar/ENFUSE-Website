@@ -1,6 +1,7 @@
 "use client";
 import ReactTypingEffect from "react-typing-effect";
 import { gsap } from "gsap";
+import { Navbar } from "@/components/navbar";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -141,7 +142,7 @@ export default function Home() {
     const page1Text = gsap.timeline();
     page1Text
           .from(".page1text" , {
-            x: -400,
+            x: 400,
             opacity : 0,
             stagger : 0.5,  
           })
@@ -183,24 +184,23 @@ export default function Home() {
     const page3 = gsap.timeline({
       scrollTrigger: {
         trigger: ".page3",
-        start: "top center",
-        end: "100% center",
-        scrub: true,
-
-        // markers: true,
+        start: "center center",
+        end: "120% center",
+        scrub: 1,
+        //  markers: true,
+         pin:true
         // toggleActions : "play reverse play reverse"
       },
     });
     page3
       .from(".page3", {
-        opacity: 0,
-        webkitClipPath: 'inset(90%)',
-        clipPath: 'inset(90%)'
-        
+        webkitClipPath: 'inset(37%)',
+        clipPath: 'inset(37%)'  ,
         
       })
       .to(".page3", {
-       
+        webkitClipPath: 'inset(0)',
+        clipPath: 'inset(0)' 
       });
 
       const races = document.querySelector(".panel-wrapper");
@@ -220,7 +220,7 @@ export default function Home() {
 
       ScrollTrigger.create({
           trigger: ".scroll-wrapper",
-          start: "35% 20%",
+          start: "10% 20%",
           end: () => `+=${getScrollAmount() * -1.5} 50%`,
           pin: true,
           animation: tween,
@@ -251,13 +251,22 @@ export default function Home() {
 
   return (
     <>
-      <section className="lg:h-screen w-screen">
-        <Stack direction={{ base: "column", md: "row" }}>
-          <Flex p={8} flex={1} align={"center"} justify={"center"}>
+      <section className="min-h-screen w-screen">
+   
+      <Flex
+          w={"full"}
+          h={"100vh"}
+          blur={"0.1"}
+          backgroundImage={"url(/oil.jpg)"}
+          backgroundSize={"cover"}
+          backgroundPosition={"center center"}
+        >
+        <Stack direction={{ base: "column", md: "row" }} w={"full"}>
+          <Flex p={8} flex={1} align={"top"} justify={"end"}>
             <Stack spacing={6} w={"full"} maxW={"lg"}>
-              <Heading className="page1text"
+              <Heading className="page1text text-transparent  bg-clip-text bg-gradient-to-r from-red-500 to-blue-500"
                 fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
-          
+                bgColor={"linear(to-r,red.300,blue.300)"}
               >
                 {/* <Text
               as={'span'}
@@ -274,17 +283,18 @@ export default function Home() {
               }}>
               Freelance
             </Text> */}{" "}
-                <Text color={"blue.400"} as={"span"}>
+                <Text  as={"span"}>
                   <ReactTypingEffect
-                    text={["ENFUSE", "ENERGY LEADER"]}
+                    text={["ENFUSE"]}
                     typingDelay={400}
                     eraseDelay={2000}
+                  
                   />
                 </Text>{" "}
               </Heading>
               <Text
                 fontSize={{ base: "md", lg: "lg" }}
-                color={"gray.500"}
+                color={"gray.00"}
              
                 className="page1text"
               >
@@ -298,25 +308,17 @@ export default function Home() {
                 stakeholders.
               </Text>
               <Stack direction={{ base: "column", md: "row" }} spacing={4}  className="page1text">
-                <Button rounded={"full"} > 
+                <button className="p-4 text-white text-lg font-bold rounded-2xl bg-gradient-to-r from-red-500 to-blue-500 " > 
                   Our Current Projects
-                </Button>
+                </button>
               </Stack>
             </Stack>
           </Flex>
-          <Flex flex={1}>
-            <Image
-              alt={"Login Image"}
-              objectFit={"contain"}
-              src={"/oil.jpg"}
-              borderRadius={"20px"}
-              ref={image}
-            />
-          </Flex>
         </Stack>
+        </Flex>
       </section>
 
-      <section className="lg:h-screen w-screen">
+      <section className="lg:h-screen w-screen flex justify-center items-center">
         <Container maxW={"5xl"} py={12}>
           <Stack direction={{ base: "column-reverse", md: "row" }} spacing={10}>
             <Flex>
@@ -381,43 +383,49 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="lg:h-screen w-screen page3">
+      <section className="min-h-screen w-screen ">
         <Flex
           w={"full"}
           h={"100vh"}
-          blur={"0.5"}
-          backgroundImage={"url(/thermalplant.jpg)"}
+          
+          backgroundImage={"url(/windmill.jpg)"}
           backgroundSize={"cover"}
           backgroundPosition={"center center"}
+          className="page3"
         >
           <VStack
             className="backdrop-blur-sm"
             w={"full"}
-            justify={"center"}
+            justify={"start"}
             px={useBreakpointValue({ base: 4, md: 8 })}
             bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
             align={"center"}
+            paddingTop={"50px"}
           >
             <Stack maxW={"2xl"} align={"flex-start"} spacing={6}>
-              <Text
-                color={"blue.500"}
-                fontWeight={700}
-                lineHeight={1.2}
-                fontSize={useBreakpointValue({ base: "3xl", md: "5xl" })}
-              >
-                OUR OBJECTIVE
-              </Text>
-              <Text
-                color={"gray.300"}
+            <Text
+                color={"gray.700"}
                 fontWeight={400}
                 lineHeight={1.2}
                 fontSize={useBreakpointValue({ base: "1xl", md: "3xl" })}
+                align={"center"}
               >
-                ENFUSE is committed for continued awareness on efficient energy
-                management and conducts focused conferences,seminars,workshops
-                and training programs in different regions of the country every
+               The primary objective would be to reduce energy intensity in the economy.Also in the agenda  is to implement policy framework  provided  by BEE in   southern    region    and   provide    direction    to   national   energy conservation  and efficiency efforts and programs
+
                 year
               </Text>
+              <Text
+                // color={"blue.500"}
+                fontWeight={700}
+                lineHeight={1.2}
+                fontSize={useBreakpointValue({ base: "3xl", md: "5xl" })}
+                align={"center"}
+                alignSelf={"center"}
+                className="text-transparent  bg-clip-text bg-gradient-to-r from-red-500 to-blue-500"
+              >
+                OUR OBJECTIVE
+              </Text>
+             
               <Stack direction={"row"}></Stack>
             </Stack>
           </VStack>
