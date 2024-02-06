@@ -246,7 +246,7 @@ export default function Home() {
       animation: tween,
       scrub: 1,
       invalidateOnRefresh: true,
-      markers: true
+    
     });
 
     const lenis = new Lenis();
@@ -360,7 +360,7 @@ export default function Home() {
               <Text color={"gray.500"} fontSize={"lg"} className="">
                 ENFUSE seeks to maximze the effectiveness of energy and fuel
                 usage, particularly in the industrial sector, and thus
-                contribute to Nation&apos;s industrial development by playing the
+                contribute to Nation's industrial development by playing the
                 role of catalyst and advisor.
               </Text>
               <Stack
@@ -368,7 +368,7 @@ export default function Home() {
                 spacing={4}
                 divider={
                   <StackDivider
-                    borderColor="gray.100"
+                    borderColor={useColorModeValue("gray.100", "gray.700")}
                   />
                 }
               >
