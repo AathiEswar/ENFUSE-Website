@@ -29,10 +29,10 @@ export default function footer() {
           <div>
             <FooterTitle title="about" />
             <FooterLinkGroup col>
-              <FooterLink href="/aboutus#2">History</FooterLink>
-              <FooterLink href="/aboutus#1">The President</FooterLink>
-              <FooterLink href="/aboutus#3">Leadership Team</FooterLink>
-              <FooterLink href="/aboutus#4">Achievements</FooterLink>
+              <FooterLink href="/aboutus">History</FooterLink>
+              <FooterLink href="/aboutus">The President</FooterLink>
+              <FooterLink href="/aboutus">Leadership Team</FooterLink>
+              <FooterLink href="/aboutus">Achievements</FooterLink>
             </FooterLinkGroup>
           </div>
           <div>
