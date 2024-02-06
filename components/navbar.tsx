@@ -52,7 +52,7 @@ export const Navbar = () => {
 	);
 
 	return (
-		<NextUINavbar maxWidth="xl" position="sticky">
+		<NextUINavbar maxWidth="xl" position="sticky" className="bg-gray-800">
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
@@ -66,7 +66,7 @@ export const Navbar = () => {
 							<NextLink
 								className={clsx(
 									linkStyles({ color: "foreground" }),
-									"data-[active=true]:text-primary data-[active=true]:font-medium"
+									"data-[active=true]:text-primary data-[active=true]:font-medium hover:text-red-500"
 								)}
 								color="foreground"
 								href={item.href}
@@ -85,7 +85,7 @@ export const Navbar = () => {
 
 				<Button
 						as={Link}
-						className="text-sm font-normal text-default-600 bg-default-100"
+						className="text-sm font-normal text-default-600 bg-transparent border hover:text-red-500 hover:border-red-500"
 						href="/events"
 						startContent={<ImBlog />}
 						variant="flat"
@@ -96,7 +96,7 @@ export const Navbar = () => {
 					<Button
         
 						as={Link}
-						className="text-sm font-normal text-default-600 bg-default-100"
+						className="text-sm font-normal text-default-600 bg-transparent border hover:text-red-500 hover:border-red-500"
 						href={siteConfig.links.sponsor}
 						startContent={<MdPeopleAlt />}
 						variant="flat"
