@@ -108,8 +108,8 @@ const [loading, setLoading] = useState(true);
               </Text>
             )}
             <Heading
-              color='white'
-              fontSize={'2xl'}
+              color='gray.700'
+              fontSize={'xl'}
               fontFamily={'body'}
             >
               {content.title}
@@ -128,7 +128,7 @@ const [loading, setLoading] = useState(true);
             _focus={{
               bg: 'green.500',
             }}>
-              <Link href={'/events/'+content.id}> Know more</Link>
+              <Link href={'/events/slugs?blogid='+content.id}> Know more</Link>
         
           </Button>
 
