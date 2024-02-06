@@ -261,7 +261,7 @@ export default function Home() {
           backgroundSize={"cover"}
           backgroundPosition={"center center"}
         >
-        <Stack direction={{ base: "column", md: "row" }} w={"full"}>
+        <Stack direction={{ base: "column", md: "row" }} w={"full"} >
           <Flex p={8} flex={1} align={"top"} justify={"end"}>
             <Stack spacing={6} w={"full"} maxW={"lg"}>
               <Heading className="page1text text-transparent  bg-clip-text bg-gradient-to-r from-red-500 to-blue-500"
