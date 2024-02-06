@@ -48,7 +48,7 @@ import Lenis from "@studio-freight/lenis";
 
 const Feature = ({ text, icon, iconBg }) => {
   return (
-    <Stack direction={"row"} align={"center"}>
+    <Stack direction={"row"} align={"center"} className="page2-icons">
       <Flex
         w={8}
         h={8}
@@ -95,38 +95,13 @@ function StatsCard(props) {
 
 export default function Home() {
   const image = useRef(null);
-  const text1 = useRef(null);
-  const text2 = useRef(null);
-  const text3 = useRef(null);
-
   const image2 = useRef(null);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-   
-    
-    const page1Image = gsap.timeline();
-    const page2Image = gsap.timeline({
-      scrollTrigger: {
-        trigger: image2.current,
-        start: "-70% center",
-        end: "200% center",
-        scrub: true,
-        // markers : true,
-        // toggleActions : "play reverse play reverse"
-      },
-    });
-    const page2Text = gsap.timeline({
-      scrollTrigger: {
-        trigger: image2.current,
 
-        start: "-70% center",
-        end: "200% center",
-        scrub: true,
-        // markers : true,
-        // toggleActions : "play reverse play reverse"
-      },
-    });
+    const page1Image = gsap.timeline();
+  
     page1Image
       .from(image.current, {
         opacity: 0,
@@ -141,45 +116,90 @@ export default function Home() {
 
     const page1Text = gsap.timeline();
     page1Text
-          .from(".page1text" , {
-            x: 400,
-            opacity : 0,
-            stagger : 0.5,  
-          })
-          .to(".page1text",{
-            x: 0,
-            opacity : 1,
-            
-          })
+      .from(".page1text", {
+        x: 400,
+        opacity: 0,
+        stagger: 0.5,
+      })
+      .to(".page1text", {
+        x: 0,
+        opacity: 1,
+      });
+
+      const page2Image = gsap.timeline({
+        scrollTrigger: {
+          trigger: image2.current,
+          start: "top center",
+          end: "80% center",
+          scrub: true,
+          // markers : true,
+          // toggleActions : "play reverse play reverse"
+        },
+      });
+    
 
     page2Image
       .from(image2.current, {
         opacity: 0,
         x: -200,
-
-        scale: 0.5,
-        duration: 1,
+      
+        duration: 0.5,
       })
       .to(image2.current, {
         delay: 0.5,
         opacity: 1,
+  
         x: 0,
-
-        scale: 1,
+      });
+      const page2Text = gsap.timeline({
+        scrollTrigger: {
+          trigger: image2.current,
+  
+          start: "top center",
+          end: "80% center",
+          scrub: true,
+          // markers : true,
+          // toggleActions : "play reverse play reverse"
+        },
       });
 
     page2Text
       .from(".scroll-in", {
         opacity: 0,
         x: 200,
-        scale: 0,
+      
         duration: 0.5,
+      
       })
       .to(".scroll-in", {
         opacity: 1,
         x: 0,
-        scale: 1,
+      
+     
       });
+
+      const page2Icons = gsap.timeline({
+        scrollTrigger: {
+          trigger : image2.current,
+          start: "10% center",
+          end: "60% center",
+          // markers : true,
+          scrub : true,
+          toggleActions : "play reverse play reverse"
+          
+        }
+      });
+      page2Icons
+            .from(".page2-icons" , {
+              x : 300,
+              stagger : 0.5,
+              opacity : 0,
+             
+            })
+            .to(".page2-icons" , {
+              x : 0,
+              opacity : 1,
+            })
 
     const page3 = gsap.timeline({
       scrollTrigger: {
@@ -188,87 +208,83 @@ export default function Home() {
         end: "120% center",
         scrub: 1,
         //  markers: true,
-         pin:true
+        pin: true,
         // toggleActions : "play reverse play reverse"
       },
     });
     page3
       .from(".page3", {
-        webkitClipPath: 'inset(37%)',
-        clipPath: 'inset(37%)'  ,
-        
+        opacity: 0,
+        webkitClipPath: "inset(37%)",
+        clipPath: "inset(37%)",
       })
       .to(".page3", {
-        webkitClipPath: 'inset(0)',
-        clipPath: 'inset(0)' 
-      });
-
-      const races = document.querySelector(".panel-wrapper");
-      console.log(races.offsetWidth)
-
-      function getScrollAmount() {
-          let racesWidth = races.scrollWidth;
-          return -(racesWidth - window.innerWidth);
-      }
-
-      const tween = gsap.to(races, {
-          x: getScrollAmount,
-          duration: 3,
-          ease: "none",
-      });
-
-
-      ScrollTrigger.create({
-          trigger: ".scroll-wrapper",
-          start: "10% 20%",
-          end: () => `+=${getScrollAmount() * -1.5} 50%`,
-          pin: true,
-          animation: tween,
-          scrub: 1,
-          invalidateOnRefresh: true,
-          // markers: true
+        opacity: 1,
+        webkitClipPath: "inset(0)",
+        clipPath: "inset(0)",
       })
 
+    const races = document.querySelector(".panel-wrapper");
+    console.log(races.offsetWidth);
 
+    function getScrollAmount() {
+      let racesWidth = races.scrollWidth;
+      return -(racesWidth - window.innerWidth);
+    }
 
+    const tween = gsap.to(races, {
+      x: getScrollAmount,
+      duration: 3,
+      ease: "none",
+    });
 
+    ScrollTrigger.create({
+      trigger: ".scroll-wrapper",
+      start: "top",
+      end: () => `+=${getScrollAmount() * -1.5} 50%`,
+      pin: true,
+      animation: tween,
+      scrub: 1,
+      invalidateOnRefresh: true,
+      markers: true
+    });
 
-      const lenis = new Lenis();
+    const lenis = new Lenis();
 
-      lenis.on("scroll", (e) => {
-        console.log(e);
-      });
-  
-      lenis.on("scroll", ScrollTrigger.update);
-  
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
-  
-      gsap.ticker.lagSmoothing(0);
-  
+    lenis.on("scroll", (e) => {
+      console.log(e);
+    });
+
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
   }, []);
 
   return (
     <>
       <section className="min-h-screen w-screen">
-   
-      <Flex
+        <Flex
           w={"full"}
           h={"100vh"}
-          blur={"0.1"}
+          opacity={"0.9"}
           backgroundImage={"url(/oil.jpg)"}
           backgroundSize={"cover"}
           backgroundPosition={"center center"}
+          borderBottomRadius ={"5%"}
         >
-        <Stack direction={{ base: "column", md: "row" }} w={"full"} >
-          <Flex p={8} flex={1} align={"top"} justify={"end"}>
-            <Stack spacing={6} w={"full"} maxW={"lg"}>
-              <Heading className="page1text text-transparent  bg-clip-text bg-gradient-to-r from-red-500 to-blue-500"
-                fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
-                bgColor={"linear(to-r,red.300,blue.300)"}
-              >
-                {/* <Text
+          <Stack direction={{ base: "column", md: "row" }} w={"full"}>
+            <Flex p={8} flex={1} align={"top"} justify={"end"}>
+              <Stack spacing={6} w={"full"} maxW={"lg"}>
+                <Heading
+                  className="page1text text-transparent  bg-clip-text bg-gradient-to-r from-red-500 to-blue-500"
+                  fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+                  bgColor={"linear(to-r,red.300,blue.300)"}
+                >
+                  {/* <Text
               as={'span'}
               position={'relative'}
               _after={{
@@ -283,44 +299,49 @@ export default function Home() {
               }}>
               Freelance
             </Text> */}{" "}
-                <Text  as={"span"}>
-                  <ReactTypingEffect
-                    text={["ENFUSE"]}
-                    typingDelay={400}
-                    eraseDelay={2000}
-                  
-                  />
-                </Text>{" "}
-              </Heading>
-              <Text
-                fontSize={{ base: "md", lg: "lg" }}
-                color={"gray.00"}
-             
-                className="page1text"
-              >
-                {" "}
-                ENFUSE is committed for continued awareness on efficient energy
-                management and conducts focused conferences,seminars,workshops
-                and training programs in different regions of the country every
-                year,where,professionals and experts in various disciplines from
-                all over the country and abroad,deliberate,interact and share
-                their knowledge and experiences, for the benefit of various
-                stakeholders.
-              </Text>
-              <Stack direction={{ base: "column", md: "row" }} spacing={4}  className="page1text">
-                <button className="p-4 text-white text-lg font-bold rounded-2xl bg-gradient-to-r from-red-500 to-blue-500 " > 
-                  Our Current Projects
-                </button>
+                  <Text as={"span"}>
+                    <ReactTypingEffect
+                      text={["ENFUSE"]}
+                      typingDelay={400}
+                      eraseDelay={2000}
+                    />
+                  </Text>{" "}
+                </Heading>
+                <Text
+                  fontSize={{ base: "md", lg: "lg" }}
+                  color={"gray.00"}
+                  className="page1text"
+                >
+                  {" "}
+                  ENFUSE is committed for continued awareness on efficient
+                  energy management and conducts focused
+                  conferences,seminars,workshops and training programs in
+                  different regions of the country every
+                  year,where,professionals and experts in various disciplines
+                  from all over the country and abroad,deliberate,interact and
+                  share their knowledge and experiences, for the benefit of
+                  various stakeholders.
+                </Text>
+                <Stack
+                  direction={{ base: "column", md: "row" }}
+                  spacing={4}
+                  className="page1text"
+                >
+                  <button className="p-4 text-white text-lg font-bold rounded-2xl bg-gradient-to-r from-red-500 to-blue-500 ">
+                    Our Current Projects
+                  </button>
+                </Stack>
               </Stack>
-            </Stack>
-          </Flex>
-        </Stack>
+            </Flex>
+          </Stack>
         </Flex>
       </section>
 
+      
+
       <section className="lg:h-screen w-screen flex justify-center items-center">
         <Container maxW={"5xl"} py={12}>
-          <Stack direction={{ base: "column-reverse", md: "row" }} spacing={10}>
+          <Stack direction={{ base: "column", md: "row" }} spacing={20}>
             <Flex>
               <Image
                 rounded={"md"}
@@ -332,18 +353,18 @@ export default function Home() {
                 ref={image2}
               />
             </Flex>
-            <Stack spacing={4}>
-              <Heading className="text-blue-500 scroll-in">
+            <Stack spacing={4} className="scroll-in" >
+              <Heading className="text-blue-500">
                 Our Commitment
               </Heading>
-              <Text color={"gray.500"} fontSize={"lg"} className="scroll-in">
+              <Text color={"gray.500"} fontSize={"lg"} className="">
                 ENFUSE seeks to maximze the effectiveness of energy and fuel
                 usage, particularly in the industrial sector, and thus
                 contribute to Nation&apos;s industrial development by playing the
                 role of catalyst and advisor.
               </Text>
               <Stack
-                className="scroll-in"
+                className=""
                 spacing={4}
                 divider={
                   <StackDivider
@@ -352,6 +373,7 @@ export default function Home() {
                 }
               >
                 <Feature
+
                   icon={
                     <Icon
                       as={IoAnalyticsSharp}
@@ -383,143 +405,145 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="min-h-screen w-screen ">
+      <section className="min-h-screen w-screen">
+        <div className="h-screen w-screen absolute flex justify-center items-center">
+          <Text
+            // color={"blue.500"}
+            fontWeight={700}
+            lineHeight={1.2}
+            fontSize={useBreakpointValue({ base: "6xl", md: "8xl" })}
+            align={"center"}
+            alignSelf={"center"}
+            className="text-transparent  bg-clip-text bg-gradient-to-r from-red-500 to-blue-500 page3-heading"
+          >
+            OUR OBJECTIVE
+          </Text>
+          </div>
+
         <Flex
           w={"full"}
           h={"100vh"}
-          
-          backgroundImage={"url(/windmill.jpg)"}
+          backgroundImage={"url(/background/windmill.jpg)"}
           backgroundSize={"cover"}
           backgroundPosition={"center center"}
           className="page3"
+         
         >
           <VStack
-            className="backdrop-blur-sm"
             w={"full"}
-            justify={"start"}
+            justify={"center"}
             px={useBreakpointValue({ base: 4, md: 8 })}
             bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
             align={"center"}
             paddingTop={"50px"}
+            className=" backdrop-blur-sm"
           >
-            <Stack maxW={"2xl"} align={"flex-start"} spacing={6}>
-            <Text
-                color={"gray.700"}
-                fontWeight={400}
+            <Stack  align={"flex-start"} spacing={6}>
+              <Text
+                color={"white"}
+              
+                fontWeight={700}
                 lineHeight={1.2}
                 fontSize={useBreakpointValue({ base: "1xl", md: "3xl" })}
                 align={"center"}
               >
-               The primary objective would be to reduce energy intensity in the economy.Also in the agenda  is to implement policy framework  provided  by BEE in   southern    region    and   provide    direction    to   national   energy conservation  and efficiency efforts and programs
-
+                The primary objective would be to reduce energy intensity in the
+                economy.Also in the agenda is to implement policy framework
+                provided by BEE in southern region and provide direction to
+                national energy conservation and efficiency efforts and programs
                 year
               </Text>
-              <Text
-                // color={"blue.500"}
-                fontWeight={700}
-                lineHeight={1.2}
-                fontSize={useBreakpointValue({ base: "3xl", md: "5xl" })}
-                align={"center"}
-                alignSelf={"center"}
-                className="text-transparent  bg-clip-text bg-gradient-to-r from-red-500 to-blue-500"
-              >
-                OUR OBJECTIVE
-              </Text>
-             
-              <Stack direction={"row"}></Stack>
+
+      
             </Stack>
           </VStack>
         </Flex>
       </section>
 
-      {/* <section className="h-screen flex items-center w-screen">
+      {
+        /* <section className="h-screen flex items-center w-screen">
         <Flex
           w={"full"}
           h={"50vh"} */
-           //backgroundImage={
-          //   'url(https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)'
-          // }
-          // backgroundSize={'cover'}
-          // backgroundPosition={'center center'}
-      //     backgroundColor={"blue.300"}
-      //     className="flex justify-center"
-      //   >
-      //     <VStack
-      //       className="relative"
-      //       w={"full"}
-      //       justify={"center"}
-      //       alignItems={"center"}
-      //       px={useBreakpointValue({ base: 4, md: 8 })}
-      //       bgGradient={"linear(to-r,red.300, blue.300)"}
-      //     >
-      //       <Text
-      //         textColor={"white"}
-      //         opacity={0.1}
-      //         fontSize={"30vw"}
-      //         className="absolute pb-16 "
-      //       >
-      //         VISION
-      //       </Text>
-      //       <Stack maxW={"4xl"} align={"flex-start"} spacing={6}>
-      //         <Text
-      //           color={"gray.100"}
-      //           fontWeight={700}
-      //           lineHeight={1.2}
-      //           fontSize={useBreakpointValue({ base: "2xl", md: "3xl" })}
-      //         >
-      //           Achieving Energy Security and Energy Independence by the year
-      //           2030. The Energy & Fuel Users’ Association of India would
-      //           Develop networking with Governmental bodies. Multilateral
-      //           agencies and Institutes, research institutions national and
-      //           international, to achieve these objectives.
-      //         </Text>
-      //         <Stack direction={"row"}>
-      //           <Button
-      //             bg={"blue.400"}
-      //             rounded={"full"}
-      //             color={"white"}
-      //             _hover={{ bg: "blue.500" }}
-      //           >
-      //             Know More About Us
-      //           </Button>
-      //           {/* <Button
-      //         bg={'whiteAlpha.300'}
-      //         rounded={'full'}
-      //         color={'white'}
-      //         _hover={{ bg: 'whiteAlpha.500' }}>
-      //         Know More About Us
-      //       </Button> */}
-      //         </Stack>
-      //       </Stack>
-      //     </VStack>
-      //   </Flex>
-      // </section>
+        //backgroundImage={
+        //   'url(https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)'
+        // }
+        // backgroundSize={'cover'}
+        // backgroundPosition={'center center'}
+        //     backgroundColor={"blue.300"}
+        //     className="flex justify-center"
+        //   >
+        //     <VStack
+        //       className="relative"
+        //       w={"full"}
+        //       justify={"center"}
+        //       alignItems={"center"}
+        //       px={useBreakpointValue({ base: 4, md: 8 })}
+        //       bgGradient={"linear(to-r,red.300, blue.300)"}
+        //     >
+        //       <Text
+        //         textColor={"white"}
+        //         opacity={0.1}
+        //         fontSize={"30vw"}
+        //         className="absolute pb-16 "
+        //       >
+        //         VISION
+        //       </Text>
+        //       <Stack maxW={"4xl"} align={"flex-start"} spacing={6}>
+        //         <Text
+        //           color={"gray.100"}
+        //           fontWeight={700}
+        //           lineHeight={1.2}
+        //           fontSize={useBreakpointValue({ base: "2xl", md: "3xl" })}
+        //         >
+        //           Achieving Energy Security and Energy Independence by the year
+        //           2030. The Energy & Fuel Users’ Association of India would
+        //           Develop networking with Governmental bodies. Multilateral
+        //           agencies and Institutes, research institutions national and
+        //           international, to achieve these objectives.
+        //         </Text>
+        //         <Stack direction={"row"}>
+        //           <Button
+        //             bg={"blue.400"}
+        //             rounded={"full"}
+        //             color={"white"}
+        //             _hover={{ bg: "blue.500" }}
+        //           >
+        //             Know More About Us
+        //           </Button>
+        //           {/* <Button
+        //         bg={'whiteAlpha.300'}
+        //         rounded={'full'}
+        //         color={'white'}
+        //         _hover={{ bg: 'whiteAlpha.500' }}>
+        //         Know More About Us
+        //       </Button> */}
+        //         </Stack>
+        //       </Stack>
+        //     </VStack>
+        //   </Flex>
+        // </section>
       }
 
-        <section className="h-fit bg-gradient-to-r from-red-500 to-blue-500 ">
-            
+      <section className="h-fit bg-gradient-to-r from-red-500 to-blue-500 ">
         <div className="scroll-wrapper overflow-x-hidden ">
-            <div className="panel-wrapper w-fit flex flex-nowrap ">
-           
-
-           
+          <div className="panel-wrapper w-screen flex flex-nowrap ">
             <Text
               textColor={"white"}
               opacity={0.1}
               fontSize={"30vw"}
-              className="shrink-0"
+              className="panel shrink-0"
             >
               VISION
             </Text>
-          
+
             <Box className="panel h-screen w-screen ">
-            <Text
+              <Text
                 color={"gray.100"}
                 fontWeight={700}
                 lineHeight={1.2}
-                fontSize={useBreakpointValue({ base: "2xl", md: "3xl" })}
-                className="panel h-screen w-screen shrink-0  flex justify-center items-center px-60  "
-          
+                fontSize={useBreakpointValue({ base: "md", md: "3xl" })}
+                className="panel h-screen w-screen shrink-0  flex justify-center items-center p-[10%] "
               >
                 Achieving Energy Security and Energy Independence by the year
                 2030. The Energy & Fuel Users’ Association of India would
@@ -527,29 +551,27 @@ export default function Home() {
                 agencies and Institutes, research institutions national and
                 international, to achieve these objectives.
               </Text>
-              </Box>
-            
-            </div>
-
+            </Box>
+          </div>
         </div>
-
-        
-        </section>
-   
+      </section>
 
       <section className="min-h-screen w-screen">
         <Box maxW="7xl" mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
           <chakra.h1
             textAlign={"center"}
             fontSize={{ md: "7xl", base: "5xl" }}
-            letterSpacing={"1rem"}
+            // letterSpacing={"1rem"}
             py={10}
             fontWeight={"bold"}
             textColor={"white"}
           >
             OUR MISSION
           </chakra.h1>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 10, lg: 20 }}>
+          <SimpleGrid
+            columns={{ base: 1, md: 2 }}
+            spacing={{ base: 10, lg: 20 }}
+          >
             <StatsCard
               title={"VOLUNTEERING"}
               stat={
@@ -557,7 +579,6 @@ export default function Home() {
               }
             />
             <StatsCard
-              
               title={"HARMONISING"}
               stat={
                 "integrated outlook harmonising energy management and environment management"
