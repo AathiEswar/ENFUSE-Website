@@ -56,7 +56,7 @@ const BlogPostWithImage = () => {
     <Stack direction={{ base: 'row', md: 'row' }} py={"6"} className='flex flex-row flex-wrap justify-center '>
       {loading ? (
         Array.from({ length: 5 }).map((_, index) => (
-          <Card className="w-[200px] space-y-5 p-4" radius="lg">
+          <Card className="w-[200px] space-y-5 p-4" radius="lg" key={index}>
           <Skeleton className="rounded-lg">
             <div className="h-24 rounded-lg bg-default-300"></div>
           </Skeleton>
@@ -85,7 +85,7 @@ const BlogPostWithImage = () => {
             bg="white"
             border={'1px'}
             borderColor="black"
-            boxShadow={useColorModeValue('6px 6px 0 black', '6px 6px 0 cyan')}>
+           >
             <Box h={'200px'} borderBottom={'1px'} borderColor="black">
               <Img
                 src="/journal-default.png"

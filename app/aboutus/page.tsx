@@ -25,20 +25,20 @@ import React from "react";
 import {users} from "./data";
 import {Tabs, Tab, Card, CardBody,Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, getKeyValue} from "@nextui-org/react";
 export default function AboutPage() {
-	const Feature = ({ text, icon, iconBg }) => {
+	const Feature = ({ text, icon, iconBg }: { text: string, icon: React.ReactNode, iconBg: string }) => {
 		return (
-		  <Stack direction={'row'} align={'center'}>
-			<Flex w={8} h={8} align={'center'} justify={'center'} rounded={'full'} bg={iconBg}>
-			  {icon}
-			</Flex>
-			<Text fontWeight={600} className='text-white'>{text}</Text>
-		  </Stack>
+			<Stack direction={'row'} align={'center'}>
+				<Flex w={8} h={8} align={'center'} justify={'center'} rounded={'full'} bg={iconBg}>
+					{icon}
+				</Flex>
+				<Text fontWeight={600} className='text-white'>{text}</Text>
+			</Stack>
 		)
-	  }
-	  const [page, setPage] = React.useState(1);
-  const rowsPerPage =7;
+	}
+	const [page, setPage] = React.useState(1);
+	const rowsPerPage = 7;
 
-  const pages = Math.ceil(users.length / rowsPerPage);
+	const pages = Math.ceil(users.length / rowsPerPage);
 
   const items = React.useMemo(() => {
     const start = (page - 1) * rowsPerPage;

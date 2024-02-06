@@ -96,7 +96,7 @@ const [loading, setLoading] = useState(true);
               <Text
                 as="div"
                 marginTop="2"
-                color={useColorModeValue('white.700', 'white.200')}
+                color="white"
                 fontSize="lg"
                 dangerouslySetInnerHTML={{ __html: content.content }}
                 className='text-white'
