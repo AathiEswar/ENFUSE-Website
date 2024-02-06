@@ -233,7 +233,7 @@ const testimonials = [
 		 	w={{base:"300px"}}
 		  alt={'feature image'}
 		  src={
-			"/history.jpg"
+			"/history.png"
 			}
 		  objectFit={'contain'}
 		  opacity={"1"}
@@ -244,7 +244,7 @@ const testimonials = [
 	  
 	  <Stack spacing={4} className=''>
 		
-		<Heading className='text-blue-500  text-center md:text-start'>History of Enfuse</Heading>
+		<Heading className='text-blue-500  text-center md:text-start'>History of ENFUSE</Heading>
 		<Text color={'gray.500'} fontSize={'lg'} >
 		Way back in 1948 a conference of Steam users and boiler inspectors was held in Madras under the initiation of then Government of Madras, Shri.M Bhakthavatsalam, the then Hon. Minister of Public Works inaugurated the conference. As a fall-out of this Conference, The Madras Provincial Steam Users’ Association was formedand was so registered. The Association was formed on the lines of Manchester Steam Users’Association with the objective of assisting boiler owners and users for solving their technical problems. In 1953 the constitution and Rules of the Association were amended to include the newly constituted states of Andhra,Mysore,Tanvancore and Cochin.The name was changed to ‘South Indian Steam & Fuel Users’ Association’. In January 1965, the name was again changed to ‘Steam & Fuel Users’ Association of India’ in order to bring into its fold, not only steam users, but also all types of fuel using industries. From 1977, the Association has not only concerned itself with matters pertaining to steam and fuel use, but also several others forms of energy, such as electricity, compressed air, renewable sources etc., In order therefore, to reflect its role, scope and range of interests more accurately, in January 1990, the Association has been renamed as the “Energy and Fuel Users’Association of India”.
 		
