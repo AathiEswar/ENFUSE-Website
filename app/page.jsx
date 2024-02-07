@@ -28,6 +28,7 @@ import {
   IoLogoBitcoin,
   IoSearchSharp,
 } from "react-icons/io5";
+
 import { useLayoutEffect, useRef } from "react";
 
 import Lenis from "@studio-freight/lenis";
@@ -62,7 +63,8 @@ function StatsCard(props) {
       border={"1px solid"}
       borderColor={useColorModeValue("white", "white")}
       rounded={"lg"}
-      className="text-white hover:text-black hover:bg-gray-300 hover:scale-105 duration-700 [clip-path:polygon(-2%-2%,100%-2%,100%_50%,-2%_50%)]  hover:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]"
+      className="text-white hover:text-black hover:bg-gray-300 hover:scale-105 duration-700"
+      // [clip-path:polygon(-2%-2%,100%-2%,100%_50%,-2%_50%)]  hover:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]
     >
       <StatLabel
         fontWeight={"bold"}
