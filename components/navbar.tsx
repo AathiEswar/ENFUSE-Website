@@ -18,7 +18,7 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import {Avatar} from "@nextui-org/react";
 import { ImBlog } from "react-icons/im";
-import { ThemeSwitch } from "@/components/theme-switch";
+
 import {
 	TwitterIcon,
 	GithubIcon,
@@ -52,7 +52,7 @@ export const Navbar = () => {
 	);
 
 	return (
-		<NextUINavbar maxWidth="xl" position="sticky" className="bg-gray-800">
+		<NextUINavbar maxWidth="xl" position="sticky" className="w-screen bg-gray-800">
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">

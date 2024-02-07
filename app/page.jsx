@@ -28,6 +28,7 @@ import {
   IoLogoBitcoin,
   IoSearchSharp,
 } from "react-icons/io5";
+
 import { useLayoutEffect, useRef } from "react";
 
 import Lenis from "@studio-freight/lenis";
@@ -62,7 +63,8 @@ function StatsCard(props) {
       border={"1px solid"}
       borderColor={useColorModeValue("white", "white")}
       rounded={"lg"}
-      className="text-white hover:text-black hover:bg-gray-300 hover:scale-105 duration-700 [clip-path:polygon(-2%_-2%,100%_-2%,100%_50%,-2%_50%)]  hover:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]"
+      className="text-white hover:text-black hover:bg-gray-300 hover:scale-105 duration-700"
+      // [clip-path:polygon(-2%-2%,100%-2%,100%_50%,-2%_50%)]  hover:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]
     >
       <StatLabel
         fontWeight={"bold"}
@@ -217,24 +219,24 @@ export default function Home() {
       let racesWidth = races.scrollWidth;
       return -(racesWidth - window.innerWidth);
     }
-
+    
     const tween = gsap.to(races, {
       x: getScrollAmount,
       duration: 3,
       ease: "none",
     });
-
+    
+    
     ScrollTrigger.create({
-      trigger: ".scroll-wrapper",
-      start: "top",
-      end: () => `+=${getScrollAmount() * -1.5} 50%`,
-      pin: true,
-      animation: tween,
-      scrub: 1,
-      invalidateOnRefresh: true,
-      //markers: true
-    });
-
+      trigger:".scroll-wrapper",
+      start:"30% 40%",
+      end: () => `+=${getScrollAmount() * -1}`,
+      pin:true,
+      animation:tween,
+      scrub:1,
+      invalidateOnRefresh:true,
+      // markers:true
+    })
     const lenis = new Lenis();
 
     lenis.on("scroll", (e) => {
@@ -511,7 +513,7 @@ export default function Home() {
         // </section>
       }
 
-      <section className="h-fit w-fit bg-gradient-to-r from-red-500 to-blue-500 ">
+      <section className="h-fit bg-gradient-to-r from-red-500 to-blue-500 ">
         <div className="scroll-wrapper overflow-x-hidden ">
           <div className="panel-wrapper w-screen flex flex-nowrap ">
             <Text
