@@ -246,7 +246,7 @@ export default function Home() {
       animation: tween,
       scrub: 1,
       invalidateOnRefresh: true,
-      markers: true
+      //markers: true
     });
 
     const lenis = new Lenis();
