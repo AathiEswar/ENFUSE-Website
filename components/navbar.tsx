@@ -113,7 +113,7 @@ export const Navbar = () => {
 					<GithubIcon className="text-default-500" />
 				</Link>
 				
-				<NavbarMenuToggle className="color-white"/>
+				<NavbarMenuToggle className="text-white"/>
 			</NavbarContent>
 
 			<NavbarMenu className="color-red-300">
