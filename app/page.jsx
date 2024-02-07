@@ -247,6 +247,7 @@ export default function Home() {
 
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
+      ScrollTrigger.refresh();
     });
 
     gsap.ticker.lagSmoothing(0);
@@ -513,7 +514,7 @@ export default function Home() {
         // </section>
       }
 
-      <section className="h-fit bg-gradient-to-r from-red-500 to-blue-500 ">
+      <section className="h-fit w-fit bg-gradient-to-r from-red-500 to-blue-500 ">
         <div className="scroll-wrapper overflow-x-hidden ">
           <div className="panel-wrapper w-screen flex flex-nowrap ">
             <Text
