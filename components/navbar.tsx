@@ -82,7 +82,7 @@ export const Navbar = () => {
 				className="hidden sm:flex basis-1/5 sm:basis-fit"
 				justify="end"
 			>
-				<NavbarItem className="hidden md:flex">
+				<NavbarItem className="hidden md:flex gap-4">
 				<Button
 						as={Link}
 						className="text-sm font-normal text-default-600 bg-transparent border hover:text-red-500 hover:border-red-500"
@@ -92,7 +92,7 @@ export const Navbar = () => {
 					>
 						Events
 					</Button>
-				<p>..</p>
+				
 					<Button
         
 						as={Link}
@@ -108,7 +108,7 @@ export const Navbar = () => {
 				</NavbarItem>
 			</NavbarContent>
 
-			<NavbarContent className="text-default-500" justify="end">
+			<NavbarContent className="lg:hidden text-default-500" justify="end">
 				<Link isExternal href={siteConfig.links.github} aria-label="Github">
 					<GithubIcon className="text-default-500" />
 				</Link>
