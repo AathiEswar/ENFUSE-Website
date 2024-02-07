@@ -1,11 +1,9 @@
 "use client";
 import ReactTypingEffect from "react-typing-effect";
 import { gsap } from "gsap";
-import { Navbar } from "@/components/navbar";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  Button,
   Flex,
   Heading,
   Image,
@@ -23,10 +21,6 @@ import {
   Stat,
   StatLabel,
   StatNumber,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
 } from "@chakra-ui/react";
 
 import {
@@ -34,15 +28,7 @@ import {
   IoLogoBitcoin,
   IoSearchSharp,
 } from "react-icons/io5";
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import { useEffect, useLayoutEffect, useRef } from "react";
-import { easeIn, easeInOut } from "framer-motion";
+import { useLayoutEffect, useRef } from "react";
 
 import Lenis from "@studio-freight/lenis";
 
@@ -76,7 +62,7 @@ function StatsCard(props) {
       border={"1px solid"}
       borderColor={useColorModeValue("white", "white")}
       rounded={"lg"}
-      className="text-white hover:text-black hover:bg-gray-300 hover:scale-105 duration-700 [clip-path:polygon(-2%_-2%,100%_-2%,100%_50%,-2%_50%)]  hover:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]"
+      className="text-white hover:text-black hover:bg-gray-300 hover:scale-105 duration-700 [clip-path:polygon(-2%-2%,100%-2%,100%_50%,-2%_50%)]  hover:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]"
     >
       <StatLabel
         fontWeight={"bold"}
@@ -241,12 +227,12 @@ export default function Home() {
     ScrollTrigger.create({
       trigger: ".scroll-wrapper",
       start: "top",
-      end: () => `+=${getScrollAmount() * -1.5} 50%`,
+      end: () =>` +=${getScrollAmount() * -1.5} 50%`,
       pin: true,
       animation: tween,
       scrub: 1,
       invalidateOnRefresh: true,
-    
+      markers: true
     });
 
     const lenis = new Lenis();
@@ -360,7 +346,7 @@ export default function Home() {
               <Text color={"gray.500"} fontSize={"lg"} className="">
                 ENFUSE seeks to maximze the effectiveness of energy and fuel
                 usage, particularly in the industrial sector, and thus
-                contribute to Nation's industrial development by playing the
+                contribute to Nation&apos;s industrial development by playing the
                 role of catalyst and advisor.
               </Text>
               <Stack
@@ -368,7 +354,7 @@ export default function Home() {
                 spacing={4}
                 divider={
                   <StackDivider
-                    borderColor={useColorModeValue("gray.100", "gray.700")}
+                    borderColor="gray.100"
                   />
                 }
               >
@@ -525,7 +511,7 @@ export default function Home() {
         // </section>
       }
 
-      <section className="h-fit w-fit bg-gradient-to-r from-red-500 to-blue-500 ">
+      <section className="h-fit bg-gradient-to-r from-red-500 to-blue-500 ">
         <div className="scroll-wrapper overflow-x-hidden ">
           <div className="panel-wrapper w-screen flex flex-nowrap ">
             <Text

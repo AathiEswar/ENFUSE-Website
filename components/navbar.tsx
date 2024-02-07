@@ -116,7 +116,7 @@ export const Navbar = () => {
 				<NavbarMenuToggle className="color-white"/>
 			</NavbarContent>
 
-			<NavbarMenu className="color-white">
+			<NavbarMenu className="color-red-300">
 				{searchInput}
 				<div className="mx-4 mt-2 flex flex-col gap-2">
 					{siteConfig.navMenuItems.map((item, index) => (

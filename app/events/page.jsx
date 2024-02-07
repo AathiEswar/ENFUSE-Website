@@ -59,7 +59,7 @@ const [loading, setLoading] = useState(true);
 
 
   return (
-    <Stack  direction={{ base: 'row', md: 'col' }} py={"6"} className='flex flex-row flex-wrap justify-center '>
+    <Stack  direction={{ base: 'row', md: 'col' }} py={"6"} className='flex flex-row flex-wrap justify-center items-center w-screen '>
       {loading ? (
         Array.from({ length: 5 }).map((_, index) => (
           <Card className="w-[200px] space-y-5 p-4" radius="lg" key ={index}>
