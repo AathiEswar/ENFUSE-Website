@@ -1,11 +1,9 @@
 "use client";
 import ReactTypingEffect from "react-typing-effect";
 import { gsap } from "gsap";
-import { Navbar } from "@/components/navbar";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  Button,
   Flex,
   Heading,
   Image,
@@ -23,10 +21,6 @@ import {
   Stat,
   StatLabel,
   StatNumber,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
 } from "@chakra-ui/react";
 
 import {
@@ -34,15 +28,7 @@ import {
   IoLogoBitcoin,
   IoSearchSharp,
 } from "react-icons/io5";
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import { useEffect, useLayoutEffect, useRef } from "react";
-import { easeIn, easeInOut } from "framer-motion";
+import { useLayoutEffect, useRef } from "react";
 
 import Lenis from "@studio-freight/lenis";
 
