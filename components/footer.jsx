@@ -27,26 +27,26 @@ export default function footer() {
         </div>
         <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
           <div>
-            <FooterTitle title="about" />
+            <FooterTitle className="text-default-500" title="about" />
             <FooterLinkGroup col>
-              <FooterLink href="/aboutus.html">History</FooterLink>
-              <FooterLink href="/aboutus.html">The President</FooterLink>
-              <FooterLink href="/aboutus.html">Leadership Team</FooterLink>
-              <FooterLink href="/aboutus.html">Achievements</FooterLink>
+              <FooterLink className="text-default-500" href="/aboutus.html">History</FooterLink>
+              <FooterLink className="text-default-500" href="/aboutus.html">The President</FooterLink>
+              <FooterLink className="text-default-500" href="/aboutus.html">Leadership Team</FooterLink>
+              <FooterLink className="text-default-500" href="/aboutus.html">Achievements</FooterLink>
             </FooterLinkGroup>
           </div>
           <div>
             <FooterTitle title=" Dissemination" />
             <FooterLinkGroup col>
-              <FooterLink href="/journal.html">Journal</FooterLink>
-              <FooterLink href="/events.html">Events </FooterLink>
+              <FooterLink className="text-default-500" href="/journal.html">Journal</FooterLink>
+              <FooterLink className="text-default-500" href="/events.html">Events </FooterLink>
             </FooterLinkGroup>
           </div>
           <div>
             <FooterTitle title="Resourceful Links" />
             <FooterLinkGroup col>
-              <FooterLink href="/memberships.html">Membership</FooterLink>
-              <FooterLink href="/contactus.html">Contact US</FooterLink>
+              <FooterLink className="text-default-500" href="/memberships.html">Membership</FooterLink>
+              <FooterLink className="text-default-500" href="/contactus.html">Contact US</FooterLink>
             </FooterLinkGroup>
           </div>
         </div>
