@@ -499,7 +499,7 @@ export default function Home() {
         <section className="h-fit bg-gradient-to-r from-red-500 to-blue-500 ">
             
         <div className="scroll-wrapper overflow-x-hidden ">
-            <div className="panel-wrapper w-fit flex flex-nowrap ">
+            <div className="panel-wrapper w-fill flex flex-nowrap ">
            
 
            
