@@ -217,24 +217,24 @@ export default function Home() {
       let racesWidth = races.scrollWidth;
       return -(racesWidth - window.innerWidth);
     }
-
+    
     const tween = gsap.to(races, {
       x: getScrollAmount,
       duration: 3,
       ease: "none",
     });
-
+    
+    
     ScrollTrigger.create({
-      trigger: ".scroll-wrapper",
-      start: "top",
-      end: () =>` +=${getScrollAmount() * -1.5} 50%`,
-      pin: true,
-      animation: tween,
-      scrub: 1,
-      invalidateOnRefresh: true,
-      //markers: true
-    });
-
+      trigger:".scroll-wrapper",
+      start:"30% 40%",
+      end: () => `+=${getScrollAmount() * -1}`,
+      pin:true,
+      animation:tween,
+      scrub:1,
+      invalidateOnRefresh:true,
+      // markers:true
+    })
     const lenis = new Lenis();
 
     lenis.on("scroll", (e) => {

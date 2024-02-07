@@ -18,7 +18,7 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import {Avatar} from "@nextui-org/react";
 import { ImBlog } from "react-icons/im";
-import { ThemeSwitch } from "@/components/theme-switch";
+
 import {
 	TwitterIcon,
 	GithubIcon,
