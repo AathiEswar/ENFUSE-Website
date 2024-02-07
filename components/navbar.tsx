@@ -60,7 +60,7 @@ export const Navbar = () => {
 						<p className="font-bold text-default-600">ENFUSE</p>
 					</NextLink>
 				</NavbarBrand>
-				<ul className="hidden lg:flex gap-4 justify-start ml-2 text-white">
+				<ul className="hidden lg:flex gap-4 justify-start ml-2 text-default-500">
 					{siteConfig.navItems.map((item) => (
 						<NavbarItem key={item.href}>
 							<NextLink
@@ -79,10 +79,10 @@ export const Navbar = () => {
 			</NavbarContent>
 
 			<NavbarContent
-				className="hidden sm:flex basis-1/5 sm:basis-full"
+				className="hidden sm:flex basis-1/5 sm:basis-fit"
 				justify="end"
 			>
-
+				<NavbarItem className="hidden md:flex">
 				<Button
 						as={Link}
 						className="text-sm font-normal text-default-600 bg-transparent border hover:text-red-500 hover:border-red-500"
@@ -92,7 +92,7 @@ export const Navbar = () => {
 					>
 						Events
 					</Button>
-				<NavbarItem className="hidden md:flex">
+				<p>..</p>
 					<Button
         
 						as={Link}
@@ -108,7 +108,7 @@ export const Navbar = () => {
 				</NavbarItem>
 			</NavbarContent>
 
-			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+			<NavbarContent className="text-default-500" justify="end">
 				<Link isExternal href={siteConfig.links.github} aria-label="Github">
 					<GithubIcon className="text-default-500" />
 				</Link>
@@ -116,8 +116,7 @@ export const Navbar = () => {
 				<NavbarMenuToggle className="text-default-500"/>
 			</NavbarContent>
 
-			<NavbarMenu className="color-red-300">
-				{searchInput}
+			<NavbarMenu className="color-white">
 				<div className="mx-4 mt-2 flex flex-col gap-2">
 					{siteConfig.navMenuItems.map((item, index) => (
 						<NavbarMenuItem key={`${item}-${index}`}>
