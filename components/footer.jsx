@@ -29,24 +29,24 @@ export default function footer() {
           <div>
             <FooterTitle title="about" />
             <FooterLinkGroup col>
-              <FooterLink href="/aboutus#2">History</FooterLink>
-              <FooterLink href="/aboutus#1">The President</FooterLink>
-              <FooterLink href="/aboutus#3">Leadership Team</FooterLink>
-              <FooterLink href="/aboutus#4">Achievements</FooterLink>
+              <FooterLink href="/aboutus.html">History</FooterLink>
+              <FooterLink href="/aboutus.html">The President</FooterLink>
+              <FooterLink href="/aboutus.html">Leadership Team</FooterLink>
+              <FooterLink href="/aboutus.html">Achievements</FooterLink>
             </FooterLinkGroup>
           </div>
           <div>
             <FooterTitle title=" Dissemination" />
             <FooterLinkGroup col>
-              <FooterLink href="/journal">Journal</FooterLink>
-              <FooterLink href="/events">Events </FooterLink>
+              <FooterLink href="/journal.html">Journal</FooterLink>
+              <FooterLink href="/events.html">Events </FooterLink>
             </FooterLinkGroup>
           </div>
           <div>
             <FooterTitle title="Resourceful Links" />
             <FooterLinkGroup col>
-              <FooterLink href="/memberships">Membership</FooterLink>
-              <FooterLink href="/contactus">Contact US</FooterLink>
+              <FooterLink href="/memberships.html">Membership</FooterLink>
+              <FooterLink href="/contactus.html">Contact US</FooterLink>
             </FooterLinkGroup>
           </div>
         </div>

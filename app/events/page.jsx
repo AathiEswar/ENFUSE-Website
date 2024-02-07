@@ -56,13 +56,13 @@ const [loading, setLoading] = useState(true);
     fetchData();
   }, [contents]);
 
-  console.log(contents);
+
 
   return (
     <Stack  direction={{ base: 'row', md: 'col' }} py={"6"} className='flex flex-row flex-wrap justify-center '>
       {loading ? (
         Array.from({ length: 5 }).map((_, index) => (
-          <Card className="w-[200px] space-y-5 p-4" radius="lg">
+          <Card className="w-[200px] space-y-5 p-4" radius="lg" key ={index}>
           <Skeleton className="rounded-lg">
             <div className="h-24 rounded-lg bg-default-300"></div>
           </Skeleton>
@@ -84,7 +84,7 @@ const [loading, setLoading] = useState(true);
           key={content.id}
           maxW={'350px'}
           w={'full'}
-          bg={useColorModeValue('white', 'gray.900')}
+          bg='white'
           boxShadow={'2xl'}
           rounded={'md'}
           p={6}
@@ -108,8 +108,8 @@ const [loading, setLoading] = useState(true);
               </Text>
             )}
             <Heading
-              color={useColorModeValue('gray.700', 'white')}
-              fontSize={'2xl'}
+              color='gray.700'
+              fontSize={'xl'}
               fontFamily={'body'}
             >
               {content.title}
@@ -128,7 +128,7 @@ const [loading, setLoading] = useState(true);
             _focus={{
               bg: 'green.500',
             }}>
-              <Link href={'/events/'+content.id}> Know more</Link>
+              <Link href={'/events/slugs?blogid='+content.id}> Know more</Link>
         
           </Button>
 

@@ -18,18 +18,22 @@ import {
   
 } from '@chakra-ui/react';
 import {Card, Skeleton} from "@nextui-org/react";
+import { useSearchParams } from 'next/navigation'
 // Import axios for data fetching
 import axios from 'axios';
 
 export const revalidate = 0;
 
-export default function Page({ params }) {
+export default function Page() {
+  const searchParams = useSearchParams()
+ 
+  const search = searchParams.get('blogid')
   const [content, setContent] = useState(null);
 const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       const apiKey = 'wpcXDxMtnnJ3rpeYcPdQgVNjb1Z4x3MRrFYT'; // Replace with your actual API key
-      const apiUrl = 'https://enfuseapp.microcms.io/api/v1/events/'+params.slugs;
+      const apiUrl = 'https://enfuseapp.microcms.io/api/v1/events/'+search;
 
       try {
         const response = await axios.get(apiUrl, {
@@ -96,7 +100,7 @@ const [loading, setLoading] = useState(true);
               <Text
                 as="div"
                 marginTop="2"
-                color={useColorModeValue('white.700', 'white.200')}
+                color="white"
                 fontSize="lg"
                 dangerouslySetInnerHTML={{ __html: content.content }}
                 className='text-white'

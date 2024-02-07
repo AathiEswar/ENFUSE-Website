@@ -25,20 +25,20 @@ import React from "react";
 import {users} from "./data";
 import {Tabs, Tab, Card, CardBody,Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, getKeyValue} from "@nextui-org/react";
 export default function AboutPage() {
-	const Feature = ({ text, icon, iconBg }) => {
+	const Feature = ({ text, icon, iconBg }: { text: string, icon: React.ReactNode, iconBg: string }) => {
 		return (
-		  <Stack direction={'row'} align={'center'}>
-			<Flex w={8} h={8} align={'center'} justify={'center'} rounded={'full'} bg={iconBg}>
-			  {icon}
-			</Flex>
-			<Text fontWeight={600} className='text-white'>{text}</Text>
-		  </Stack>
+			<Stack direction={'row'} align={'center'}>
+				<Flex w={8} h={8} align={'center'} justify={'center'} rounded={'full'} bg={iconBg}>
+					{icon}
+				</Flex>
+				<Text fontWeight={600} className='text-white'>{text}</Text>
+			</Stack>
 		)
-	  }
-	  const [page, setPage] = React.useState(1);
-  const rowsPerPage =7;
+	}
+	const [page, setPage] = React.useState(1);
+	const rowsPerPage = 7;
 
-  const pages = Math.ceil(users.length / rowsPerPage);
+	const pages = Math.ceil(users.length / rowsPerPage);
 
   const items = React.useMemo(() => {
     const start = (page - 1) * rowsPerPage;
@@ -77,7 +77,7 @@ const testimonials = [
 	  content:
 		'He is a master in Environmental Engineering from College of Engg Guindy Anna University Chennai, graduated in 1994 with distinction and got University medal on merit. He has more than 24 years of experience in the field of design / consulting / tendering / project management of water/wastewater treatment plants, /reuse/ recycling of waste (solid /liquid/gaseous), conservation of water and Energy',
 	  avatar:
-		'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+		'/account.png',
 	},
 	{
 	  name: 'Dr.A.Peer Fathima',
@@ -85,7 +85,7 @@ const testimonials = [
 	  content:
 		"Dr.A.Peer Fathima has obtained her B.E degree in Electrical & amp; Electronics Engineering from Madurai Kamaraj University in the year 1990, M.E degree in High voltage Engineering from Anna University, Chennai, and M.S degree in Electronics &amp; Control from BITS Pilani in the year 1995. She received her Ph.D degree from Anna university, Chennai in the year 2008",
 	  avatar:
-		'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+		'/account.png',
 	},
 	{
 	  name: 'ER.R.RAJUPANDI ',
@@ -93,7 +93,7 @@ const testimonials = [
 	  content:
 		"ER.R.RAJUPANDI Obtained Bachelors degree in Electrical Engineering from Madras University, studiedIn PSG College of Technology, Coimbatore in the year 1968. Post graduate in Power System got the degree from Madurai Kamaraj University in the year 1988.My Thesis on “Economical Scheduling of Generators” was awarded as an exceptional work by the university.",
 	  avatar:
-		'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80',
+		'/account.png',
 	},
 	{
 	  name: 'Sujatha (Mukundan) Srinivasan',
@@ -101,7 +101,7 @@ const testimonials = [
 	  content:
 		'Sujatha (Mukundan) Srinivasan is a Director at Servals Automation Pvt Ltd, a social enterprise, engaged in creating Sustainable Cooking Solutions for Developing Countries. Founded in 2002 by Mr. P. Mukundan, Servals has been doing pioneering work in the field of rural cooking energy solutions. Sujatha, after a successful stint of a decade with The Gallup Organisation (in India and US), has been associated with the growth of the organization from the R&amp;D stage of the product, through the cycle of commercialization, market leadership and continuous market creation and R&amp;D improvements.',
 	  avatar:
-		'https://images.unsplash.com/photo-1606513542745-97629752a13b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+		'/account.png',
 	},
   ]
   

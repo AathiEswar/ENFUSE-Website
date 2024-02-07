@@ -88,7 +88,7 @@ export default function SplitScreen() {
                 />
               </AspectRatio>
               <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
-                Mr. S. Ramalingam, President of Enfuse, gave a speech on the topic "Sustainable Development – Green GDP AND Regenerative Economy" at the Waterloo Institute of Sustainable Energy (WISE), University of Waterloo, Canada. The presentation in its entirety can be viewed below.
+                Mr. S. Ramalingam, President of Enfuse, gave a speech on the topic &quot; Sustainable Development &ldquo; Green GDP AND Regenerative Economy&quot; at the Waterloo Institute of Sustainable Energy , University of Waterloo, Canada. The presentation in its entirety can be viewed below.
               </Text>
             </>
           </Stack>
