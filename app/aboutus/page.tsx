@@ -190,7 +190,7 @@ export default function AboutPage() {
 		<Tab className='text-white ' fontSize={"smaller"} >History</Tab>
 		
 		<Tab className='text-white  ' fontSize={"smaller"} >Achievements</Tab>
-		<Tab className='text-white sm:hidden' fontSize={"smaller"} >Team</Tab>
+		<Tab className='text-white invisible md:visible' fontSize={"smaller"} >Team</Tab>
 	</TabList>
 	<TabIndicator
 		mt="-1.5px"
