@@ -30,7 +30,7 @@ import {
 } from "react-icons/io5";
 
 import { useLayoutEffect, useRef } from "react";
-
+import {Link} from "@nextui-org/react";
 import Lenis from "@studio-freight/lenis";
 
 const Feature = ({ text, icon, iconBg }) => {
@@ -141,7 +141,7 @@ export default function Home() {
       });
       const page2Text = gsap.timeline({
         scrollTrigger: {
-          trigger: image2.current,
+          trigger:".scroll-in",
   
           start: "top center",
           end: "80% center",
@@ -168,7 +168,7 @@ export default function Home() {
 
       const page2Icons = gsap.timeline({
         scrollTrigger: {
-          trigger : image2.current,
+          trigger : ".scroll-in",
           start: "10% center",
           end: "60% center",
           // markers : true,
@@ -316,8 +316,8 @@ export default function Home() {
                   spacing={4}
                   className="page1text"
                 >
-                  <button className="p-4 text-white text-lg font-bold rounded-2xl bg-gradient-to-r from-red-500 to-blue-500 ">
-                    Our Current Projects
+                  <button  className="rounded-2xl bg-gradient-to-r from-red-500 to-blue-500 ">
+                   <Link href="/aboutus" color="foreground" className="p-4 font-bold text-lg">About Us</Link>
                   </button>
                 </Stack>
               </Stack>
