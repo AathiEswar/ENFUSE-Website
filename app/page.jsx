@@ -197,7 +197,7 @@ export default function Home() {
         start: "center center",
         end: "120% center",
         scrub: 1,
-        //  markers: true,
+         markers: true,
         pin: true,
         // toggleActions : "play reverse play reverse"
       },
@@ -205,8 +205,8 @@ export default function Home() {
     page3
       .from(".page3", {
         opacity: 0,
-        webkitClipPath: "inset(37%)",
-        clipPath: "inset(37%)",
+        webkitClipPath: "inset(90% round 90%)",
+        clipPath: "inset(10% round 50%)",
       })
       .to(".page3", {
         opacity: 1,
@@ -343,10 +343,10 @@ export default function Home() {
                 borderRadius={"20px"}
                 ref={image2}
               />
-            </Flex>
+            </Flex> 
             <Stack spacing={4} className="scroll-in" >
-              <Heading className="text-blue-500">
-                Our Commitment
+              <Heading className="text-transparent  bg-clip-text bg-gradient-to-r from-red-500 to-blue-500 font-bold text-4xl">
+                OUR COMMITMENT
               </Heading>
               <Text color={"gray.500"} fontSize={"lg"} className="">
                 ENFUSE seeks to maximze the effectiveness of energy and fuel
