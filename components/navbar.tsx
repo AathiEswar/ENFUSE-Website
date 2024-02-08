@@ -109,9 +109,7 @@ export const Navbar = () => {
 			</NavbarContent>
 
 			<NavbarContent className="lg:hidden text-default-500" justify="end">
-				<Link isExternal href={siteConfig.links.github} aria-label="Github">
-					<GithubIcon className="text-default-500" />
-				</Link>
+				
 				
 				<NavbarMenuToggle className="text-default-500"/>
 			</NavbarContent>
