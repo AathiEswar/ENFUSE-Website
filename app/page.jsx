@@ -141,7 +141,7 @@ export default function Home() {
       });
       const page2Text = gsap.timeline({
         scrollTrigger: {
-          trigger: image2.current,
+          trigger:".scroll-in",
   
           start: "top center",
           end: "80% center",
@@ -168,7 +168,7 @@ export default function Home() {
 
       const page2Icons = gsap.timeline({
         scrollTrigger: {
-          trigger : image2.current,
+          trigger : ".scroll-in",
           start: "10% center",
           end: "60% center",
           // markers : true,
