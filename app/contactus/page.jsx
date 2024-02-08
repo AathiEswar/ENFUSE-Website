@@ -3,8 +3,6 @@
 
 import { Card } from 'flowbite-react';
 import React from "react";
-import { AspectRatio } from '@chakra-ui/react';
-import { MapInteractionCSS } from "react-map-interaction";
 
 export default function Component() {
   
