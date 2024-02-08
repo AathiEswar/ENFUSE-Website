@@ -23,6 +23,8 @@ import {
   StatNumber,
 } from "@chakra-ui/react";
 
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
+
 import {
   IoAnalyticsSharp,
   IoLogoBitcoin,
@@ -332,15 +334,14 @@ export default function Home() {
         <Container maxW={"5xl"} py={12}>
           <Stack direction={{ base: "column", md: "row" }} spacing={20}>
             <Flex>
-              <Image
-                rounded={"md"}
-                alt={"feature image"}
-                src={"/harness.jpg"}
-                objectFit={"cover"}
-                opacity={"0.9"}
-                borderRadius={"20px"}
-                ref={image2}
-              />
+            <Player
+  autoplay
+  loop
+  src="https://lottie.host/e872b273-2c8a-4714-a257-556b65644b54/QJ73NENRbP.json"
+  className="w-[32rem] sm:w-[28-rem]"
+>
+  <Controls  />
+</Player>
             </Flex>
             <Stack spacing={4} className="scroll-in" >
               <Heading className="text-blue-500">
