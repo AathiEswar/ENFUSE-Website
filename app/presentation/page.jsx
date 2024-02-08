@@ -113,7 +113,7 @@ export default function SplitScreen() {
         <Box>
             <div className="w-[200px] space-y-5 p-4">
               <Document file='/enfuse-ppt.pdf' onLoadSuccess={onDocumentLoadSuccess}>
-                <Page pageNumber={pageNumber} />
+                <Page pageNumber={pageNumber}  height={200}/>
               </Document>
               <div className='grid gap-4 grid-cols-2'> 
               <Button  onClick={prePage} disabled={pageNumber >= numPages}>
