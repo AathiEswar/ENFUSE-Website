@@ -25,7 +25,7 @@ import {
   StatNumber,
 } from "@chakra-ui/react";
 
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
 import {
   IoAnalyticsSharp,
@@ -34,7 +34,7 @@ import {
 } from "react-icons/io5";
 
 import { useLayoutEffect, useRef } from "react";
-import {Link} from "@nextui-org/react";
+import { Link } from "@nextui-org/react";
 import Lenis from "@studio-freight/lenis";
 
 const Feature = ({ text, icon, iconBg }) => {
@@ -93,7 +93,7 @@ export default function Home() {
     gsap.registerPlugin(ScrollTrigger);
 
     const page1Image = gsap.timeline();
-  
+
     page1Image
       .from(image.current, {
         opacity: 0,
@@ -118,80 +118,74 @@ export default function Home() {
         opacity: 1,
       });
 
-      const page2Image = gsap.timeline({
-        scrollTrigger: {
-          trigger: image2.current,
-          start: "top center",
-          end: "80% center",
-          scrub: true,
-          // markers : true,
-          // toggleActions : "play reverse play reverse"
-        },
-      });
-    
+    const page2Image = gsap.timeline({
+      scrollTrigger: {
+        trigger: image2.current,
+        start: "top center",
+        end: "80% center",
+        scrub: true,
+        // markers : true,
+        // toggleActions : "play reverse play reverse"
+      },
+    });
 
     page2Image
       .from(image2.current, {
         opacity: 0,
         x: -200,
-      
+
         duration: 0.5,
       })
       .to(image2.current, {
         delay: 0.5,
         opacity: 1,
-  
+
         x: 0,
       });
-      const page2Text = gsap.timeline({
-        scrollTrigger: {
-          trigger:".scroll-in",
-  
-          start: "top center",
-          end: "80% center",
-          scrub: true,
-          // markers : true,
-          // toggleActions : "play reverse play reverse"
-        },
-      });
+    const page2Text = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".scroll-in",
+
+        start: "top center",
+        end: "80% center",
+        scrub: true,
+        // markers : true,
+        // toggleActions : "play reverse play reverse"
+      },
+    });
 
     page2Text
       .from(".scroll-in", {
         opacity: 0,
         x: 200,
-      
+
         duration: 0.5,
-      
       })
       .to(".scroll-in", {
         opacity: 1,
         x: 0,
-      
-     
       });
 
-      const page2Icons = gsap.timeline({
-        scrollTrigger: {
-          trigger : ".scroll-in",
-          start: "10% center",
-          end: "60% center",
-          // markers : true,
-          scrub : true,
-          toggleActions : "play reverse play reverse"
-          
-        }
+    const page2Icons = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".scroll-in",
+        start: "10% center",
+        end: "60% center",
+        // markers : true,
+        scrub: true,
+        toggleActions: "play reverse play reverse",
+      },
+    });
+    page2Icons
+      .from(".page2-icons", {
+        x: 300,
+        stagger: 0.5,
+        opacity: 0,
+      })
+      .to(".page2-icons", {
+        x: 0,
+        opacity: 1,
       });
-      page2Icons
-            .from(".page2-icons" , {
-              x : 300,
-              stagger : 0.5,
-              opacity : 0,
-             
-            })
-            .to(".page2-icons" , {
-              x : 0,
-              opacity : 1,
-            })
 
     const page3 = gsap.timeline({
       scrollTrigger: {
@@ -199,7 +193,6 @@ export default function Home() {
         start: "center center",
         end: "120% center",
         scrub: 1,
-        //  markers: true,
         pin: true,
         // toggleActions : "play reverse play reverse"
       },
@@ -207,14 +200,14 @@ export default function Home() {
     page3
       .from(".page3", {
         opacity: 0,
-        webkitClipPath: "inset(37%)",
-        clipPath: "inset(37%)",
+        webkitClipPath: "inset(90% round 90%)",
+        clipPath: "inset(10% round 50%)",
       })
       .to(".page3", {
         opacity: 1,
         webkitClipPath: "inset(0)",
         clipPath: "inset(0)",
-      })
+      });
 
     const races = document.querySelector(".panel-wrapper");
     console.log(races.offsetWidth);
@@ -223,24 +216,23 @@ export default function Home() {
       let racesWidth = races.scrollWidth;
       return -(racesWidth - window.innerWidth);
     }
-    
+
     const tween = gsap.to(races, {
       x: getScrollAmount,
       duration: 3,
       ease: "none",
     });
-    
-    
+
     ScrollTrigger.create({
-      trigger:".scroll-wrapper",
-      start:"30% 40%",
+      trigger: ".scroll-wrapper",
+      start: "30% 40%",
       end: () => `+=${getScrollAmount() * -1}`,
-      pin:true,
-      animation:tween,
-      scrub:1,
-      invalidateOnRefresh:true,
+      pin: true,
+      animation: tween,
+      scrub: 1,
+      invalidateOnRefresh: true,
       // markers:true
-    })
+    });
     const lenis = new Lenis();
 
     lenis.on("scroll", (e) => {
@@ -253,7 +245,7 @@ export default function Home() {
       lenis.raf(time * 1000);
       ScrollTrigger.refresh();
     });
-    
+
     gsap.ticker.lagSmoothing(0);
   }, []);
 
@@ -267,7 +259,7 @@ export default function Home() {
           backgroundImage={"url(/oil.jpg)"}
           backgroundSize={"cover"}
           backgroundPosition={"center center"}
-          borderBottomRadius ={"5%"}
+          borderBottomRadius={"5%"}
         >
           <Stack direction={{ base: "column", md: "row" }} w={"full"}>
             <Flex p={8} flex={1} align={"top"} justify={"end"}>
@@ -320,8 +312,14 @@ export default function Home() {
                   spacing={4}
                   className="page1text"
                 >
-                  <button  className="rounded-2xl bg-gradient-to-r from-red-500 to-blue-500 ">
-                   <Link href="/aboutus" color="foreground" className="p-4 font-bold text-lg">About Us</Link>
+                  <button className="rounded-2xl bg-gradient-to-r from-red-500 to-blue-500 ">
+                    <Link
+                      href="/aboutus"
+                      color="foreground"
+                      className="p-4 font-bold text-lg"
+                    >
+                      About Us
+                    </Link>
                   </button>
                 </Stack>
               </Stack>
@@ -330,67 +328,57 @@ export default function Home() {
         </Flex>
       </section>
 
-      
-
       <section className="lg:h-screen w-screen flex justify-center items-center">
-        <Container maxW={"5xl"} py={12}>
-          <Stack direction={{ base: "column", md: "row" }} spacing={20}>
-            <Flex>
-            <Player
-  autoplay
-  loop
-  src="https://lottie.host/e872b273-2c8a-4714-a257-556b65644b54/QJ73NENRbP.json"
-  className="w-[32rem] sm:w-[28-rem]"
->
-  <Controls  />
-</Player>
+        <Container maxW={"7xl"} py={12}>
+          <Stack direction={{ base: "column", md: "row" }} >
+          
+            <Flex  ref={image2} className="w-[100%]">
+              <Player
+              className="w-full h-full"
+                autoplay
+                loop
+                src="https://lottie.host/e872b273-2c8a-4714-a257-556b65644b54/QJ73NENRbP.json"
+              
+              >
+                <Controls  />
+              </Player>
             </Flex>
-            <Stack spacing={4} className="scroll-in" >
-              <Heading className="text-blue-500">
-                Our Commitment
+     
+            <Stack spacing={4} className="scroll-in">
+              <Heading className="text-transparent  bg-clip-text bg-gradient-to-r from-red-500 to-blue-700 font-bold text-4xl">
+                OUR COMMITMENT
               </Heading>
               <Text color={"gray.500"} fontSize={"lg"} className="">
                 ENFUSE seeks to maximze the effectiveness of energy and fuel
                 usage, particularly in the industrial sector, and thus
-                contribute to Nation&apos;s industrial development by playing the
-                role of catalyst and advisor.
+                contribute to Nation&apos;s industrial development by playing
+                the role of catalyst and advisor.
               </Text>
               <Stack
                 className=""
                 spacing={4}
-                divider={
-                  <StackDivider
-                    borderColor="gray.100"
-                  />
-                }
+                divider={<StackDivider borderColor="gray.100" />}
               >
                 <Feature
-
                   icon={
-                    
                     // <Icon
                     //   as={IoAnalyticsSharp}
                     //   color={"yellow.500"}
                     //   w={5}
                     //   h={5}
                     // />
-                      <FaOilWell/>
+                    <FaOilWell />
                   }
                   iconBg={useColorModeValue("yellow.200", "yellow.900")}
                   text={"Oil and Gas"}
                 />
                 <Feature
-                  icon={
-                    <MdEnergySavingsLeaf />
-                  
-                  }
+                  icon={<MdEnergySavingsLeaf />}
                   iconBg={useColorModeValue("green.200", "green.900")}
                   text={"Renewable Energy"}
                 />
                 <Feature
-                  icon={
-                    <HiLightningBolt />
-                  }
+                  icon={<HiLightningBolt />}
                   iconBg={useColorModeValue("purple.200", "purple.900")}
                   text={"Energy Efficiency"}
                 />
@@ -413,7 +401,7 @@ export default function Home() {
           >
             OUR OBJECTIVE
           </Text>
-          </div>
+        </div>
 
         <Flex
           w={"full"}
@@ -422,7 +410,6 @@ export default function Home() {
           backgroundSize={"cover"}
           backgroundPosition={"center center"}
           className="page3"
-         
         >
           <VStack
             w={"full"}
@@ -433,7 +420,7 @@ export default function Home() {
             paddingTop={"50px"}
             className=" backdrop-blur-sm"
           >
-            <Stack  align={"flex-start"} spacing={6}>
+            <Stack align={"flex-start"} spacing={6}>
               <Text
                 color={"white"}
                 className="p-[20%]"
@@ -448,8 +435,6 @@ export default function Home() {
                 national energy conservation and efficiency efforts and programs
                 year
               </Text>
-
-      
             </Stack>
           </VStack>
         </Flex>
