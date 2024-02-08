@@ -112,11 +112,18 @@ export default function SplitScreen() {
       ) : (
         <Box>
             <div className="w-[200px] space-y-5 p-4">
-              <Document file='/enfuse-ppt.pdf' onLoadSuccess={onDocumentLoadSuccess}>
-                <Page pageNumber={pageNumber}     renderAnnotationLayer={false} height={200}
+              <div className='hidden sm:flex'><Document file='/enfuse-ppt.pdf' onLoadSuccess={onDocumentLoadSuccess}>
+                <Page pageNumber={pageNumber}     renderAnnotationLayer={false} height={400} 
   renderTextLayer={false} />
           
               </Document>
+              </div>
+              <div className='sm:hidden'><Document file='/enfuse-ppt.pdf' onLoadSuccess={onDocumentLoadSuccess}>
+                <Page pageNumber={pageNumber}     renderAnnotationLayer={false} height={400} width={300}
+  renderTextLayer={false} />
+          
+              </Document>
+              </div>
               <div className='grid gap-4 grid-cols-2'> 
               <Button  onClick={prePage} disabled={pageNumber >= numPages}>
                 Prev Page
