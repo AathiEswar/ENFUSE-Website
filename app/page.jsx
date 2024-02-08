@@ -1,7 +1,9 @@
 "use client";
 import ReactTypingEffect from "react-typing-effect";
 import { gsap } from "gsap";
-
+import { FaOilWell } from "react-icons/fa6";
+import { HiLightningBolt } from "react-icons/hi";
+import { MdEnergySavingsLeaf } from "react-icons/md";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   Flex,
@@ -249,7 +251,7 @@ export default function Home() {
       lenis.raf(time * 1000);
       ScrollTrigger.refresh();
     });
-
+    
     gsap.ticker.lagSmoothing(0);
   }, []);
 
@@ -364,28 +366,31 @@ export default function Home() {
                 <Feature
 
                   icon={
-                    <Icon
-                      as={IoAnalyticsSharp}
-                      color={"yellow.500"}
-                      w={5}
-                      h={5}
-                    />
+                    
+                    // <Icon
+                    //   as={IoAnalyticsSharp}
+                    //   color={"yellow.500"}
+                    //   w={5}
+                    //   h={5}
+                    // />
+                      <FaOilWell/>
                   }
-                  iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                  iconBg={useColorModeValue("yellow.200", "yellow.900")}
                   text={"Oil and Gas"}
                 />
                 <Feature
                   icon={
-                    <Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />
+                    <MdEnergySavingsLeaf />
+                  
                   }
-                  iconBg={useColorModeValue("green.100", "green.900")}
+                  iconBg={useColorModeValue("green.200", "green.900")}
                   text={"Renewable Energy"}
                 />
                 <Feature
                   icon={
-                    <Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />
+                    <HiLightningBolt />
                   }
-                  iconBg={useColorModeValue("purple.100", "purple.900")}
+                  iconBg={useColorModeValue("purple.200", "purple.900")}
                   text={"Energy Efficiency"}
                 />
               </Stack>
