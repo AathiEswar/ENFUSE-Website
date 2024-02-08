@@ -329,7 +329,7 @@ export default function Home() {
       </section>
 
       <section className="lg:h-screen w-screen flex justify-center items-center">
-        <Container maxW={"7xl"} py={12}>
+        <Container maxW={"7xl"} py={12} overflow="hidden">
           <Stack direction={{ base: "column", md: "row" }} >
           
             <Flex  ref={image2} className="w-[100%]">
