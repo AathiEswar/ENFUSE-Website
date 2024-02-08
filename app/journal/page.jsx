@@ -22,7 +22,15 @@ import Link from 'next/link';
 import '../load.css';
 
 const Loading = () => {
-  return <div className="loading-spinner"></div>;
+  // return <div className="loading-spinner"></div>;
+  return (
+    <section className='h-screen w-screen flex justify-center items-center'>
+    <div className='loader'>
+       <div className="loading-spinner"></div>
+       <img src='/enfuse.png'></img>
+    </div>
+    </section>
+  )
 };
 
 const BlogPostWithImage = () => {

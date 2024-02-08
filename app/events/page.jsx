@@ -19,10 +19,7 @@ import {
 import axios from 'axios';
 import Link from 'next/link'
 
-// Loading component
-const Loading = () => {
-  return <div className="loading-spinner"></div>;
-};
+
 
 // Actual content component
 const ContentComponent = () => {
@@ -148,6 +145,18 @@ const [loading, setLoading] = useState(true);
     </Stack>
   );
 }
+// Loading component
+const Loading = () => {
+  // return <div className="loading-spinner"></div>;
+  return (
+    <section className='h-screen w-screen flex justify-center items-center'>
+    <div className='loader'>
+       <div className="loading-spinner"></div>
+       <img src='/enfuse.png'></img>
+    </div>
+    </section>
+  )
+};
 
 const MainComponent = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -156,7 +165,7 @@ const MainComponent = () => {
    
     setTimeout(() => {
       setIsLoading(false); 
-    }, 500);
+    }, 5000);
   }, []); 
 
   return (

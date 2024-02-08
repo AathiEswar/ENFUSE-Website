@@ -430,7 +430,7 @@ export default function Home() {
             <Stack  align={"flex-start"} spacing={6}>
               <Text
                 color={"white"}
-              
+                className="p-[20%]"
                 fontWeight={700}
                 lineHeight={1.2}
                 fontSize={useBreakpointValue({ base: "1xl", md: "3xl" })}
