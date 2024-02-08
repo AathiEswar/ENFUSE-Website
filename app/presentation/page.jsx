@@ -124,12 +124,12 @@ export default function SplitScreen() {
           
               </Document>
               </div>
-              <div className='grid gap-4 grid-cols-2'> 
-              <Button  onClick={prePage} disabled={pageNumber >= numPages}>
-                Prev Page
+              <div className='grid gap-4 grid-cols-2 '> 
+              <Button bgColor={"gray.800"}  onClick={prePage} disabled={pageNumber >= numPages}>
+              <p className="font-bold text-default-600">⬅</p>
               </Button>
-              <Button  onClick={nextPage} disabled={pageNumber >= numPages}>
-                Next Page
+              <Button  bgColor={"gray.800"}  onClick={nextPage} disabled={pageNumber >= numPages}>
+              <p className="font-bold text-default-600">➡</p>
               </Button>
              </div>
              
