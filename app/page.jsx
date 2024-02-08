@@ -25,6 +25,8 @@ import {
   StatNumber,
 } from "@chakra-ui/react";
 
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
+
 import {
   IoAnalyticsSharp,
   IoLogoBitcoin,
@@ -197,7 +199,7 @@ export default function Home() {
         start: "center center",
         end: "120% center",
         scrub: 1,
-         markers: true,
+        //  markers: true,
         pin: true,
         // toggleActions : "play reverse play reverse"
       },
@@ -205,8 +207,8 @@ export default function Home() {
     page3
       .from(".page3", {
         opacity: 0,
-        webkitClipPath: "inset(90% round 90%)",
-        clipPath: "inset(10% round 50%)",
+        webkitClipPath: "inset(37%)",
+        clipPath: "inset(37%)",
       })
       .to(".page3", {
         opacity: 1,
@@ -334,19 +336,18 @@ export default function Home() {
         <Container maxW={"5xl"} py={12}>
           <Stack direction={{ base: "column", md: "row" }} spacing={20}>
             <Flex>
-              <Image
-                rounded={"md"}
-                alt={"feature image"}
-                src={"/harness.jpg"}
-                objectFit={"cover"}
-                opacity={"0.9"}
-                borderRadius={"20px"}
-                ref={image2}
-              />
-            </Flex> 
+            <Player
+  autoplay
+  loop
+  src="https://lottie.host/e872b273-2c8a-4714-a257-556b65644b54/QJ73NENRbP.json"
+  className="w-[32rem] sm:w-[28-rem]"
+>
+  <Controls  />
+</Player>
+            </Flex>
             <Stack spacing={4} className="scroll-in" >
-              <Heading className="text-transparent  bg-clip-text bg-gradient-to-r from-red-500 to-blue-500 font-bold text-4xl">
-                OUR COMMITMENT
+              <Heading className="text-blue-500">
+                Our Commitment
               </Heading>
               <Text color={"gray.500"} fontSize={"lg"} className="">
                 ENFUSE seeks to maximze the effectiveness of energy and fuel
